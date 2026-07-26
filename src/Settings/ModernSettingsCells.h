@@ -6,7 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Core/TwitterChirpFont.h"
+
+CGFloat ModernSettingsHorizontalInset(void);
 
 @interface ModernSettingsTableViewCell : UITableViewCell
 @property (nonatomic, strong) UIImageView* iconImageView;

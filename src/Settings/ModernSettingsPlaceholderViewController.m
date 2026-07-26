@@ -9,6 +9,7 @@
 #import "Core/BHTBundle.h"
 #import "Core/BHTManager.h"
 #import "Headers/TWHeaders.h"
+#import "Settings/ModernSettingsCells.h"
 #import "ThemeColor/Palette.h"
 
 @implementation ModernSettingsPlaceholderViewController
@@ -94,14 +95,8 @@
         [[BHTBundle sharedBundle] localizedStringForKey:@"MODERN_SETTINGS_PLACEHOLDER_DETAIL_TEXT"];
 
     id fontGroup = [BHTManager sharedFontGroup];
-    if (fontGroup) {
-        if ([fontGroup respondsToSelector:@selector(bodyBoldFont)]) {
-            titleLabel.font = [fontGroup performSelector:@selector(bodyBoldFont)];
-        }
-        if ([fontGroup respondsToSelector:@selector(subtext2Font)]) {
-            detailLabel.font = [fontGroup performSelector:@selector(subtext2Font)];
-        }
-    }
+    titleLabel.font = [fontGroup performSelector:@selector(bodyBoldFont)];
+    detailLabel.font = [fontGroup performSelector:@selector(subtext2Font)];
 
     Class TAEColorSettingsCls = objc_getClass("TAEColorSettings");
     id settings = [TAEColorSettingsCls sharedSettings];
@@ -120,11 +115,12 @@
 
     [header addSubview:stack];
 
+    CGFloat inset = ModernSettingsHorizontalInset();
     [NSLayoutConstraint activateConstraints:@[
         [stack.leadingAnchor constraintEqualToAnchor:header.leadingAnchor
-                                            constant:20],
+                                            constant:inset],
         [stack.trailingAnchor constraintEqualToAnchor:header.trailingAnchor
-                                             constant:-20],
+                                             constant:-inset],
         [stack.topAnchor constraintEqualToAnchor:header.topAnchor
                                         constant:16],
         [stack.bottomAnchor constraintEqualToAnchor:header.bottomAnchor

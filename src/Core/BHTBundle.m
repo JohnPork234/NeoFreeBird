@@ -18,18 +18,20 @@
     dispatch_once(&onceToken, ^{
         NSFileManager* fileManager = [NSFileManager defaultManager];
         NSURL* bundlePath = nil;
-        if ([fileManager
-                fileExistsAtPath:
-                    @"/Library/Application Support/BHT/BHTwitter.bundle"]) {
-            bundlePath = [NSURL
-                fileURLWithPath:@"/Library/Application Support/BHT/BHTwitter.bundle"];
-        } else if ([fileManager fileExistsAtPath:@"/var/jb/Library/Application "
-                                                 @"Support/BHT/BHTwitter.bundle"]) {
-            bundlePath = [NSURL
-                fileURLWithPath:
-                    @"/var/jb/Library/Application Support/BHT/BHTwitter.bundle"];
-        } else {
-            bundlePath = [[NSBundle mainBundle] URLForResource:@"BHTwitter"
+        NSString* name = @TWEAK_NAME_STRING;
+
+        for (NSString* prefix in @[ @"", @"/var/jb" ]) {
+            NSString* path = [NSString
+                stringWithFormat:@"%@/Library/Application Support/%@/%@.bundle",
+                                 prefix, name, name];
+            if ([fileManager fileExistsAtPath:path]) {
+                bundlePath = [NSURL fileURLWithPath:path];
+                break;
+            }
+        }
+
+        if (!bundlePath) {
+            bundlePath = [[NSBundle mainBundle] URLForResource:name
                                                  withExtension:@"bundle"];
         }
 

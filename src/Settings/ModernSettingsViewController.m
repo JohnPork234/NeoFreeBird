@@ -56,11 +56,12 @@
 
         [headerView addSubview:subtitleLabel];
 
+        CGFloat inset = ModernSettingsHorizontalInset();
         [NSLayoutConstraint activateConstraints:@[
             [subtitleLabel.leadingAnchor constraintEqualToAnchor:headerView.leadingAnchor
-                                                        constant:20],
+                                                        constant:inset],
             [subtitleLabel.trailingAnchor constraintEqualToAnchor:headerView.trailingAnchor
-                                                         constant:-20],
+                                                         constant:-inset],
             [subtitleLabel.topAnchor constraintEqualToAnchor:headerView.topAnchor
                                                     constant:16],
             [subtitleLabel.bottomAnchor constraintEqualToAnchor:headerView.bottomAnchor
@@ -106,11 +107,12 @@
 
     [headerView addSubview:titleLabel];
 
+    CGFloat inset = ModernSettingsHorizontalInset();
     [NSLayoutConstraint activateConstraints:@[
         [titleLabel.leadingAnchor constraintEqualToAnchor:headerView.leadingAnchor
-                                                 constant:20],
+                                                 constant:inset],
         [titleLabel.trailingAnchor constraintEqualToAnchor:headerView.trailingAnchor
-                                                  constant:-20],
+                                                  constant:-inset],
         [titleLabel.topAnchor constraintEqualToAnchor:headerView.topAnchor
                                              constant:32],
         [titleLabel.bottomAnchor constraintEqualToAnchor:headerView.bottomAnchor
@@ -389,11 +391,12 @@
 
     UILabel* footerLabel = [[UILabel alloc] init];
     footerLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    footerLabel.text = @NFB_VERSION_STRING " (" NFB_COMMIT_STRING ")";
+    footerLabel.text = @TWEAK_NAME_STRING " v" TWEAK_VERSION_STRING " (" TWEAK_COMMIT_STRING ")";
     footerLabel.numberOfLines = 0;
     footerLabel.textAlignment = NSTextAlignmentLeft;
 
-    footerLabel.font = TwitterChirpFont(TwitterFontStyleRegular);
+    id fontGroup = [BHTManager sharedFontGroup];
+    footerLabel.font = [fontGroup performSelector:@selector(subtext2Font)];
 
     Class TAEColorSettingsCls = objc_getClass("TAEColorSettings");
     id settings = [TAEColorSettingsCls sharedSettings];
@@ -404,11 +407,12 @@
 
     [footerView addSubview:footerLabel];
 
+    CGFloat inset = ModernSettingsHorizontalInset();
     [NSLayoutConstraint activateConstraints:@[
         [footerLabel.leadingAnchor constraintEqualToAnchor:footerView.leadingAnchor
-                                                  constant:20], // match table cell padding
+                                                  constant:inset],
         [footerLabel.trailingAnchor constraintEqualToAnchor:footerView.trailingAnchor
-                                                   constant:-20],
+                                                   constant:-inset],
         [footerLabel.topAnchor constraintEqualToAnchor:footerView.topAnchor
                                               constant:8],
         [footerLabel.bottomAnchor constraintEqualToAnchor:footerView.bottomAnchor
@@ -512,27 +516,28 @@
     devChevron.tag = 103;
     devChevron.contentMode = UIViewContentModeScaleAspectFit;
     [cell.contentView addSubview:devChevron];
+    CGFloat inset = ModernSettingsHorizontalInset();
     [NSLayoutConstraint activateConstraints:@[
         [avatarImageView.leadingAnchor constraintEqualToAnchor:cell.contentView.leadingAnchor
-                                                      constant:20],
+                                                      constant:inset],
         [avatarImageView.centerYAnchor constraintEqualToAnchor:cell.contentView.centerYAnchor],
         [avatarImageView.widthAnchor constraintEqualToConstant:52],
         [avatarImageView.heightAnchor constraintEqualToConstant:52],
         [nameLabel.leadingAnchor constraintEqualToAnchor:avatarImageView.trailingAnchor
-                                                constant:12],
+                                                constant:16],
         [nameLabel.trailingAnchor constraintEqualToAnchor:devChevron.leadingAnchor
-                                                 constant:-12],
+                                                 constant:-16],
         [nameLabel.topAnchor constraintEqualToAnchor:cell.contentView.topAnchor
                                             constant:16],
         [usernameLabel.leadingAnchor constraintEqualToAnchor:nameLabel.leadingAnchor],
         [usernameLabel.trailingAnchor constraintEqualToAnchor:devChevron.leadingAnchor
-                                                     constant:-12],
+                                                     constant:-16],
         [usernameLabel.topAnchor constraintEqualToAnchor:nameLabel.bottomAnchor
                                                 constant:2],
         [usernameLabel.bottomAnchor constraintEqualToAnchor:cell.contentView.bottomAnchor
                                                    constant:-16],
         [devChevron.trailingAnchor constraintEqualToAnchor:cell.contentView.trailingAnchor
-                                                  constant:-20],
+                                                  constant:-inset],
         [devChevron.centerYAnchor constraintEqualToAnchor:cell.contentView.centerYAnchor],
         [devChevron.widthAnchor constraintEqualToConstant:18],
         [devChevron.heightAnchor constraintEqualToConstant:18]

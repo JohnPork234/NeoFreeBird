@@ -287,6 +287,11 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsPages(void) {
                         @"type": @"toggle"
                     },
                     @{
+                        @"key": @"restore_twitter_icons",
+                        @"default": @([BHTManager isTwitterBranded]),
+                        @"type": @"toggle"
+                    },
+                    @{
                         @"key": @"refresh_pill_label",
                         @"default": @([BHTManager isTwitterBranded]),
                         @"type": @"toggle"

@@ -315,3 +315,56 @@ static NSString* PillLabelText(void) {
 }
 
 %end
+
+// MARK: - Restore Twitter icons
+// Every SVG icon resolves through an ordered list of search directories that
+// the app assembles exactly once at startup (the setter ignores every call
+// after the first). Prepending the tweak's directories shadows the app's SVGs
+// per-file, with anything we don't ship falling back to the originals.
+// brand_svgs holds just the X logo marks, prepended even with the icons
+// setting off when the app is named Twitter so it never shows X branding.
+
+@interface PTVUtil : NSObject
++ (void)VectorImageSetSearchDirectoryURL:(NSURL*)url;
+@end
+
+static NSArray<NSURL*>* TweakVectorImageURLs(void) {
+    BOOL icons = [BHTSettings boolForKey:@"restore_twitter_icons"];
+    NSMutableArray<NSURL*>* urls = [NSMutableArray array];
+    if (icons) {
+        [urls addObject:[[BHTBundle sharedBundle] pathForFile:@"svgs"]];
+    }
+    if (icons || [BHTManager isTwitterBranded]) {
+        [urls addObject:[[BHTBundle sharedBundle] pathForFile:@"brand_svgs"]];
+    }
+    return urls;
+}
+
+%hook UIImage
+
++ (void)tfn_vectorImageSetSearchDirectoryURLs:(NSArray<NSURL*>*)urls {
+    NSArray<NSURL*>* ours = TweakVectorImageURLs();
+    if (ours.count > 0 && urls.count > 0) {
+        urls = [ours arrayByAddingObjectsFromArray:urls];
+    }
+    %orig(urls);
+}
+
+%end
+
+// The Spaces icon loader copies the first search directory verbatim and has no
+// per-file fallback, so hand it the app's own directory instead of ours.
+%hook T1AppEventHandler
+
+- (void)_t1_setupPeriscopeVectorGraphicsContainer {
+    NSArray<NSURL*>* urls = [UIImage tfn_vectorImageSearchDirectoryURLs];
+    NSArray<NSURL*>* ours = TweakVectorImageURLs();
+    if (ours.count == 0 || urls.count <= ours.count ||
+        ![urls.firstObject isEqual:ours.firstObject]) {
+        %orig;
+        return;
+    }
+    [%c(PTVUtil) VectorImageSetSearchDirectoryURL:urls[ours.count]];
+}
+
+%end

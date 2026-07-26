@@ -237,11 +237,12 @@
     UIColor* subtitleColor = [colorPalette performSelector:@selector(tabBarItemColor)];
     label.textColor = subtitleColor;
     [header addSubview:label];
+    CGFloat inset = ModernSettingsHorizontalInset();
     [NSLayoutConstraint activateConstraints:@[
         [label.leadingAnchor constraintEqualToAnchor:header.leadingAnchor
-                                            constant:20],
+                                            constant:inset],
         [label.trailingAnchor constraintEqualToAnchor:header.trailingAnchor
-                                             constant:-20],
+                                             constant:-inset],
         [label.topAnchor constraintEqualToAnchor:header.topAnchor
                                         constant:8],
         [label.bottomAnchor constraintEqualToAnchor:header.bottomAnchor
