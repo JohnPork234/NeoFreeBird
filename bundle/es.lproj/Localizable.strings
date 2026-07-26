@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "Ocultar contenido de tendencia";
 "HIDE_TRENDS_DETAIL" = "Muestra solo la barra de búsqueda en la pestaña Explorar, ocultando todas las tendencias, noticias y las pestañas de la página.";
 
-"TAB_BAR_THEMING_TITLE" = "Barra de navegación clásica";
-"TAB_BAR_THEMING_DETAIL" = "Aplica tu color de acento al ícono de navegación seleccionado.";
+"TAB_BAR_THEMING_TITLE" = "Colorear barra de navegación";
+"TINT_TAB_BAR_TITLE" = "Colorear barra de pestañas";
 
 "DISABLE_RTL_TITLE" = "Usar diseño de izquierda a derecha";
 "DISABLE_RTL_DETAIL" = "Forzar diseño LTR, incluso en idiomas RTL.";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "Etiquetas de navegación";
 "RESTORE_TAB_LABELS_DETAIL" = "Muestra las etiquetas debajo de los íconos como en el Twitter clásico.";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Colorear ícono de Twitter";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "Aplica el color de acento al ícono de Twitter en la barra superior.";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Colorear logo";
 
 "REFRESH_PILL_TEXT" = "Post enviado";
 "REFRESH_PILL_LABEL_TITLE" = "Añadir etiqueta a la píldora de actualización";

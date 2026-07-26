@@ -121,13 +121,9 @@ static NSArray* orderedTabEntries(NSArray* entries) {
 
 %end
 
-// MARK: - Tab bar icon and label theming
+// MARK: - Navigation bar icon and label theming
 
 static BOOL updatingTabIconColor = NO;
-
-static UIColor* tabItemColor(BOOL selected) {
-    return selected ? CurrentAccentColor() : [UIColor secondaryLabelColor];
-}
 
 %hook T1TabView
 
@@ -140,7 +136,8 @@ static UIColor* tabItemColor(BOOL selected) {
 
     updatingTabIconColor = YES;
     if ([BHTSettings boolForKey:@"tab_bar_theming"]) {
-        self.iconColor = tabItemColor(self.selected);
+        // nil falls back to the app's native item colour for unselected tabs.
+        self.iconColor = self.selected ? CurrentAccentColor() : nil;
     } else if (self.iconColor) {
         self.iconColor = nil;
     }
@@ -152,8 +149,10 @@ static UIColor* tabItemColor(BOOL selected) {
 - (void)_t1_updateTitleLabel {
     %orig;
 
-    if ([BHTSettings boolForKey:@"tab_bar_theming"]) {
-        self.titleLabel.textColor = tabItemColor(self.selected);
+    // %orig already colours the unselected label natively; only the selected
+    // item takes the custom accent.
+    if ([BHTSettings boolForKey:@"tab_bar_theming"] && self.selected) {
+        self.titleLabel.textColor = CurrentAccentColor();
     }
 }
 
@@ -164,10 +163,18 @@ static UIColor* tabItemColor(BOOL selected) {
     return %orig;
 }
 
-%new
-- (void)applyCurrentThemeToIcon {
-    [self _t1_updateImageViewAnimated:NO];
-    [self _t1_updateTitleLabel];
+%end
+
+// MARK: - Tab bar (top swipe segments) underline tinting
+
+%hook _TtC10TFNUISwift25SegmentedHighlightBarView
+
+- (void)setBackgroundColor:(UIColor*)color {
+    if (color && [BHTSettings boolForKey:@"tint_tab_bar"]) {
+        %orig(CurrentAccentColor());
+    } else {
+        %orig(color);
+    }
 }
 
 %end

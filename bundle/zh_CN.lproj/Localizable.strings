@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "隐藏热门内容";
 "HIDE_TRENDS_DETAIL" = "在“探索”标签中仅显示搜索栏，隐藏所有趋势、新闻和页面标签。";
 
-"TAB_BAR_THEMING_TITLE" = "经典导航栏";
-"TAB_BAR_THEMING_DETAIL" = "将您的强调色应用于当前选中的导航项。";
+"TAB_BAR_THEMING_TITLE" = "为导航栏着色";
+"TINT_TAB_BAR_TITLE" = "为标签栏着色";
 
 "DISABLE_RTL_TITLE" = "使用从左到右布局";
 "DISABLE_RTL_DETAIL" = "即使是 RTL 语言也强制使用 LTR 布局。";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "导航标签";
 "RESTORE_TAB_LABELS_DETAIL" = "在导航图标下方显示文字标签，如旧版 Twitter。";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "为 Twitter 图标着色";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "将强调色应用于顶栏的 Twitter 图标。";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "为标志着色";
 
 "REFRESH_PILL_TEXT" = "已发帖";
 "REFRESH_PILL_LABEL_TITLE" = "在刷新提示条上添加标签";

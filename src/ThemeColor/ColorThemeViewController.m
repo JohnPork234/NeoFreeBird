@@ -35,13 +35,6 @@ static const NSUInteger kAccentOptionCount = 6;
 static NSString* const kAccentColorNames[kAccentOptionCount] = {@"BLUE", @"YELLOW", @"RED",
                                                                 @"PURPLE", @"ORANGE", @"GREEN"};
 
-static UIColor* NativeAccentColor(NSUInteger option) {
-    id palette =
-        [[[objc_getClass("TAEColorSettings") sharedSettings] currentColorPalette] colorPalette];
-    UIColor* color = [palette primaryColorForOption:option];
-    return [color isKindOfClass:[UIColor class]] ? color : nil;
-}
-
 @interface ColorThemeViewController ()
 @property (nonatomic, strong) NSMutableArray<ColorSwatchControl*>* swatches;
 @end
@@ -74,6 +67,9 @@ static UIColor* NativeAccentColor(NSUInteger option) {
     row.alignment = UIStackViewAlignmentFill;
     [self.view addSubview:row];
 
+    id palette = [[[objc_getClass("TAEColorSettings") sharedSettings]
+        currentColorPalette] colorPalette];
+
     self.swatches = [NSMutableArray new];
     for (NSUInteger option = 1; option <= kAccentOptionCount; option++) {
         ColorSwatchControl* swatch = [[ColorSwatchControl alloc] init];
@@ -84,7 +80,9 @@ static UIColor* NativeAccentColor(NSUInteger option) {
             localizedTwitterStringForKey:[NSString
                                              stringWithFormat:@"FLEETS_COLOR_%@_ACCESSIBILITY_LABEL",
                                                               kAccentColorNames[option - 1]]];
-        [swatch setSwatchColor:NativeAccentColor(option)];
+        UIColor* color = [palette primaryColorForOption:option];
+        [swatch setSwatchColor:[color isKindOfClass:[UIColor class]] ? color
+                                                                     : nil];
         [swatch addTarget:self
                       action:@selector(swatchTapped:)
             forControlEvents:UIControlEventTouchUpInside];
@@ -127,51 +125,6 @@ static UIColor* NativeAccentColor(NSUInteger option) {
     changeTwitterColor(swatch.colorID);
 
     [self refreshSelection];
-    [self reapplyTabBarAccent];
-}
-
-// Re-tint the live tab bar icons to the new accent.
-- (void)reapplyTabBarAccent {
-    Class t1TabBarVCClass = NSClassFromString(@"T1TabBarViewController");
-    if (!t1TabBarVCClass) return;
-
-    UIWindow* window = nil;
-    for (UIWindowScene* scene in UIApplication.sharedApplication.connectedScenes) {
-        if (scene.activationState == UISceneActivationStateForegroundActive &&
-            [scene isKindOfClass:[UIWindowScene class]]) {
-            if ([scene.delegate respondsToSelector:@selector(window)]) {
-                window = [(id)scene.delegate window];
-            } else {
-                for (UIWindow* w in [(id)scene windows]) {
-                    if (w.isKeyWindow) {
-                        window = w;
-                        break;
-                    }
-                }
-            }
-            if (window) break;
-        }
-    }
-    if (!window) return;
-
-    NSMutableArray* stack = [NSMutableArray arrayWithObject:window.rootViewController];
-    while (stack.count) {
-        UIViewController* vc = stack.firstObject;
-        [stack removeObjectAtIndex:0];
-        if ([vc isKindOfClass:t1TabBarVCClass] && [vc respondsToSelector:@selector(tabViews)]) {
-            for (id tab in [vc valueForKey:@"tabViews"]) {
-                if ([tab respondsToSelector:@selector(applyCurrentThemeToIcon)]) {
-                    [tab performSelector:@selector(applyCurrentThemeToIcon)];
-                }
-            }
-        }
-        if (vc.presentedViewController) [stack addObject:vc.presentedViewController];
-        if ([vc isKindOfClass:[UINavigationController class]])
-            [stack addObjectsFromArray:((UINavigationController*)vc).viewControllers];
-        if ([vc isKindOfClass:[UITabBarController class]])
-            [stack addObjectsFromArray:((UITabBarController*)vc).viewControllers];
-        [stack addObjectsFromArray:vc.childViewControllers];
-    }
 }
 
 @end

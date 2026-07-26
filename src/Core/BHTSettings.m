@@ -51,6 +51,10 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsPages(void) {
                         @"action": @"showCustomTabBarVC:",
                         @"type": @"button"
                     },
+                    @{@"key": @"color_twitter_icon_in_top_bar",
+                      @"default": @([BHTManager isTwitterBranded])},
+                    @{@"key": @"tint_tab_bar",
+                      @"default": @NO},
                     @{@"key": @"tab_bar_theming",
                       @"default": @NO},
                     @{@"key": @"restore_tab_labels",
@@ -293,11 +297,6 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsPages(void) {
                     },
                     @{
                         @"key": @"refresh_pill_label",
-                        @"default": @([BHTManager isTwitterBranded]),
-                        @"type": @"toggle"
-                    },
-                    @{
-                        @"key": @"color_twitter_icon_in_top_bar",
                         @"default": @([BHTManager isTwitterBranded]),
                         @"type": @"toggle"
                     }

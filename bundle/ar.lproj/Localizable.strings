@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "إخفاء المحتوى الرائج";
 "HIDE_TRENDS_DETAIL" = "عرض شريط البحث فقط في تبويب الاستكشاف، مع إخفاء جميع الترندات والأخبار وتبويبات الصفحة.";
 
-"TAB_BAR_THEMING_TITLE" = "شريط تنقل كلاسيكي";
-"TAB_BAR_THEMING_DETAIL" = "تطبيق لون التمييز على عنصر التنقل المحدد.";
+"TAB_BAR_THEMING_TITLE" = "تلوين شريط التنقل";
+"TINT_TAB_BAR_TITLE" = "تلوين شريط التبويبات";
 
 "DISABLE_RTL_TITLE" = "استخدام تخطيط من اليسار لليمين";
 "DISABLE_RTL_DETAIL" = "فرض تخطيط LTR حتى في اللغات RTL.";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "تسميات التنقل";
 "RESTORE_TAB_LABELS_DETAIL" = "عرض التسميات أسفل الأيقونات في شريط التنقل كما في تويتر القديم.";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "تلوين أيقونة تويتر";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "تطبيق لون التمييز على أيقونة تويتر في الشريط العلوي.";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "تلوين الشعار";
 
 "REFRESH_PILL_TEXT" = "تم النشر";
 "REFRESH_PILL_LABEL_TITLE" = "إضافة تسمية إلى شريط التحديث";

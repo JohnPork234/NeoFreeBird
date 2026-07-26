@@ -234,14 +234,10 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @YES;
     }
 
-    // The Media tab reads its switch as an integer and shows on this sentinel.
-    if ([key isEqualToString:@"media_tab_enabled"]) {
-        return @99;
-    }
-
-    // 0 hides the Communities tab, 1 is contextual-only; anything else shows it.
+    // The reader gates on this bool, then reads the visibility from the string
+    // value (forced to "always" in stringForKey: below).
     if ([key isEqualToString:@"c9s_tab_visibility"]) {
-        return @2;
+        return @YES;
     }
 
     if (!ReportGenuineTabGates) {
@@ -326,8 +322,6 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         [key isEqualToString:
                  @"subscriptions_gifting_premium_intro_copy_enabled"] ||
         [key isEqualToString:
-                 @"subscriptions_ios_download_to_offline_upsell_enabled"] ||
-        [key isEqualToString:
                  @"ios_notifications_blue_verified_introductory_offer_visible"] ||
         [key isEqualToString:@"ios_notifications_blue_verified_introductory_"
                              @"offer_prefix_visible"] ||
@@ -384,11 +378,26 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
 // can be wrapped in TFSInstrumentedFeatureSwitches, which implements its own
 // typed getters, so both classes need the same hooks.
 
+// String-typed switches need their own override path; the numeric one can't
+// carry an enum string. Only the Communities visibility switch needs it so far.
+static NSString* FeatureSwitchStringOverrideForKey(NSString* key) {
+    if ([key isEqualToString:@"c9s_tab_visibility"]) {
+        return @"always";
+    }
+
+    return nil;
+}
+
 %hook TFSFeatureSwitches
 
 - (BOOL)boolForKey:(NSString*)key {
     NSNumber* override = FeatureSwitchOverrideValueForKey(key);
     return override ? override.boolValue : %orig;
+}
+
+- (NSString*)stringForKey:(NSString*)key {
+    NSString* override = FeatureSwitchStringOverrideForKey(key);
+    return override ?: %orig;
 }
 
 - (NSInteger)integerForKey:(NSString*)key {
@@ -429,6 +438,11 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
 - (BOOL)boolForKey:(NSString*)key {
     NSNumber* override = FeatureSwitchOverrideValueForKey(key);
     return override ? override.boolValue : %orig;
+}
+
+- (NSString*)stringForKey:(NSString*)key {
+    NSString* override = FeatureSwitchStringOverrideForKey(key);
+    return override ?: %orig;
 }
 
 - (NSInteger)integerForKey:(NSString*)key {
@@ -723,12 +737,12 @@ BOOL panelIsGenuinelyAvailable(long long panelID) {
                                       @selector(birdwatchHomePageIsEnabled)) &&
                    genuineTabGateFlag(switches, @selector(birdwatchHistoryIsEnabled));
         }
-        case 16: // Premium hub
+        case 15: // Premium hub
             return genuineSwitchBool(@"subscriptions_premium_hub_enabled");
-        case 17: // Jobs
+        case 16: // Jobs
             return genuineSwitchBool(@"recruiting_global_jobs_hub_enabled") ||
                    genuineSwitchBool(@"recruiting_jetfuel_jobs_hub_enabled");
-        case 18: { // Money
+        case 17: { // Money
             id host =
                 ((id (*)(id, SEL))objc_msgSend)(objc_getClass("T1HostViewController"),
                                                 @selector(sharedHostViewController));
@@ -776,7 +790,7 @@ static __thread BOOL DashPanelIDQuery = NO;
         }
     };
 
-    for (NSNumber* panelID in @[@13, @16, @17, @18]) {
+    for (NSNumber* panelID in @[@13, @15, @16, @17]) {
         if (!panelIsGenuinelyAvailable(panelID.longLongValue)) {
             claim(panelID);
         }
@@ -787,7 +801,7 @@ static __thread BOOL DashPanelIDQuery = NO;
     }
 
     if (!AccountIsGenuinelyPremium()) {
-        claim(@16);
+        claim(@15);
     }
 
     return spoofed;

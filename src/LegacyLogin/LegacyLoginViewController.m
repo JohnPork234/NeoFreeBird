@@ -64,10 +64,6 @@ static id GuestAccountID(void) {
     return sym ? (__bridge id)(*(void**)sym) : nil;
 }
 
-static id Loader(void) {
-    return Perform0(objc_getClass("TFSTwitterServiceRunner"), @selector(APICommandLoader));
-}
-
 static id Context(void) {
     return Perform0(objc_getClass("TFSTwitterServiceRunner"), @selector(APICommandContext));
 }
@@ -416,8 +412,9 @@ static NSString* const kJSInstJS =
         [self.hud
             setText:[[BHTBundle sharedBundle] localizedStringForKey:@"LEGACY_LOGIN_SIGNING_IN_STATUS"]];
 
+        Class runnerCls = objc_getClass("TFSTwitterServiceRunner");
         Class cmdCls = objc_getClass("TFSTwitterAPIXAuthPasswordCommand");
-        if (!cmdCls || !Loader() || !Context()) {
+        if (!cmdCls || ![runnerCls respondsToSelector:@selector(startAPICommand:)] || !Context()) {
             [self.hud hide];
             [self alert:[[BHTBundle sharedBundle] localizedStringForKey:@"LEGACY_LOGIN_UNAVAILABLE_TITLE"]
                     msg:[[BHTBundle sharedBundle]
@@ -450,7 +447,7 @@ static NSString* const kJSInstJS =
                 return;
             }
 
-            ((void (*)(id, SEL, id))objc_msgSend)(Loader(), @selector(startCommand:), cmd);
+            ((void (*)(id, SEL, id))objc_msgSend)(runnerCls, @selector(startAPICommand:), cmd);
         } @catch (NSException* ex) {
             [self.hud hide];
             [self

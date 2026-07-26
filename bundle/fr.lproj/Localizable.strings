@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "Masquer les tendances";
 "HIDE_TRENDS_DETAIL" = "Affiche uniquement la barre de recherche dans l'onglet Explorer, en masquant les tendances, l'actualité et les onglets de page.";
 
-"TAB_BAR_THEMING_TITLE" = "Barre de navigation classique";
-"TAB_BAR_THEMING_DETAIL" = "Applique votre couleur d'accent à l'élément de navigation sélectionné.";
+"TAB_BAR_THEMING_TITLE" = "Teinter la barre de navigation";
+"TINT_TAB_BAR_TITLE" = "Teinter la barre d'onglets";
 
 "DISABLE_RTL_TITLE" = "Utiliser disposition gauche-droite";
 "DISABLE_RTL_DETAIL" = "Force la vue LTR même pour les langues RTL.";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "Étiquettes de navigation";
 "RESTORE_TAB_LABELS_DETAIL" = "Affichez les étiquettes sous les icônes comme dans les anciennes versions de Twitter.";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Colorer l'icône Twitter";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "Applique la couleur d'accent à l'icône Twitter dans la barre supérieure.";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Teinter le logo";
 
 "REFRESH_PILL_TEXT" = "Posté";
 "REFRESH_PILL_LABEL_TITLE" = "Ajouter une étiquette à la pastille d'actualisation";

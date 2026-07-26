@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "隱藏熱門內容";
 "HIDE_TRENDS_DETAIL" = "在「探索」標籤頁中只顯示搜尋列，隱藏所有趨勢、新聞和頁面分頁。";
 
-"TAB_BAR_THEMING_TITLE" = "經典標籤圖示";
-"TAB_BAR_THEMING_DETAIL" = "將您的主題顏色套用於目前選取的標籤項目。";
+"TAB_BAR_THEMING_TITLE" = "著色導覽列";
+"TINT_TAB_BAR_TITLE" = "著色標籤列";
 
 "DISABLE_RTL_TITLE" = "使用左至右排版";
 "DISABLE_RTL_DETAIL" = "即使為 RTL 語言也強制使用 LTR 佈局。";
@@ -251,11 +251,10 @@
 "CUSTOM_TAB_BAR_RESET_MESSAGE" = "您確定要將導覽列恢復為預設狀態嗎？";
 
 /* Restore tab labels */
-"RESTORE_TAB_LABELS_TITLE" = "還原分頁標籤";
-"RESTORE_TAB_LABELS_DETAIL" = "像舊版 Twitter 一樣在標籤列圖示下方顯示標籤。";
+"RESTORE_TAB_LABELS_TITLE" = "導覽列標籤";
+"RESTORE_TAB_LABELS_DETAIL" = "像舊版 Twitter 一樣在導覽列圖示下方顯示標籤。";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "將 X 圖示上色";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "將主題強調色套用至頂部導覽列的 X 圖示。";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "著色標誌";
 
 "REFRESH_PILL_TEXT" = "已發文";
 "REFRESH_PILL_LABEL_TITLE" = "在重新整理提示中加入標籤";

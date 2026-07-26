@@ -9,11 +9,8 @@
 #import "TFSHeaders.h"
 
 @interface TFNTwitterAccount : NSObject
-@property (nonatomic, strong) NSString* displayFullName;
 @property (nonatomic, strong) NSString* username;
 @property (nonatomic, strong) NSString* displayUsername;
-@property (nonatomic, strong) NSString* fullName;
-@property (nonatomic, strong) id scribe;
 @end
 
 @interface TFNTableView : UITableView

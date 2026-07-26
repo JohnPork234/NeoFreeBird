@@ -104,34 +104,18 @@ static BOOL progressLabelAlphaFromState(id pluginView, CGFloat* outAlpha) {
 
 // MARK: - Disable Immersive Feed Scrolling
 
-// The card pan drives vertical paging between videos; blocking it lets the
-// swipe-down dismiss gesture take over.
-static BOOL isImmersiveCardPan(id viewController,
-                               UIGestureRecognizer* gesture) {
-    Ivar panIvar =
-        class_getInstanceVariable([viewController class], "panRecognizer");
-    return panIvar && object_getIvar(viewController, panIvar) == gesture;
-}
-
 %hook T1ImmersiveViewController
 
+// The card pan drives vertical paging between videos; blocking it lets the
+// swipe-down dismiss gesture take over. The pan is a Swift lazy stored
+// property, so its ivar is name-mangled.
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer*)gesture {
-    if ([BHTSettings boolForKey:@"disable_immersive_scroll"] &&
-        isImmersiveCardPan(self, gesture)) {
-        return NO;
-    }
-
-    return %orig;
-}
-
-%end
-
-%hook T1ImmersiveViewControllerV2
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer*)gesture {
-    if ([BHTSettings boolForKey:@"disable_immersive_scroll"] &&
-        isImmersiveCardPan(self, gesture)) {
-        return NO;
+    if ([BHTSettings boolForKey:@"disable_immersive_scroll"]) {
+        Ivar panIvar = class_getInstanceVariable(
+            object_getClass(self), "$__lazy_storage_$_panRecognizer");
+        if (panIvar && object_getIvar(self, panIvar) == gesture) {
+            return NO;
+        }
     }
 
     return %orig;

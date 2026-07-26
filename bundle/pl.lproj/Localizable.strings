@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "Ukryj popularne treści";
 "HIDE_TRENDS_DETAIL" = "Pokazuje tylko pasek wyszukiwania na karcie Eksploruj, ukrywając wszystkie trendy, wiadomości i karty stron.";
 
-"TAB_BAR_THEMING_TITLE" = "Klasyczny pasek kart";
-"TAB_BAR_THEMING_DETAIL" = "Nadaj kolorowi akcentu aktualnie wybranej karcie.";
+"TAB_BAR_THEMING_TITLE" = "Koloruj pasek nawigacji";
+"TINT_TAB_BAR_TITLE" = "Koloruj pasek zakładek";
 
 "DISABLE_RTL_TITLE" = "Używaj układu od lewej do prawej";
 "DISABLE_RTL_DETAIL" = "Wymuś układ od lewej do prawej nawet w językach pisanych od prawej do lewej.";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "Etykiety kart";
 "RESTORE_TAB_LABELS_DETAIL" = "Pokazuj etykiety pod ikonami na pasku kart.";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Koloruj ikonę Twittera";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "Nadaje kolor akcentu ikonie Twittera na górnym pasku.";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Koloruj logo";
 
 "REFRESH_PILL_TEXT" = "Opublikowano";
 "REFRESH_PILL_LABEL_TITLE" = "Dodaj etykietę na pasek odświeżania";

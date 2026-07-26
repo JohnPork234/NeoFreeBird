@@ -24,14 +24,14 @@ static TFNTwitterStatus* statusFromObject(id object) {
         if ([tweet isKindOfClass:%c(TFNTwitterStatus)]) {
             return (TFNTwitterStatus*)tweet;
         }
-    } @catch (__unused NSException* exception) {
-    }
 
-    @
-    try {
-        id status = [object valueForKey:@"status"];
-        if ([status isKindOfClass:%c(TFNTwitterStatus)]) {
-            return (TFNTwitterStatus*)status;
+        // The view model's tweet is a TAPTweetPerspective; convert it rather
+        // than depending on its backing class.
+        Class statusClass = %c(TFNTwitterStatus);
+        if (tweet && [statusClass respondsToSelector:
+                                      @selector(statusForPerspectiveOrNil:)]) {
+            return ((TFNTwitterStatus* (*)(id, SEL, id))objc_msgSend)(
+                statusClass, @selector(statusForPerspectiveOrNil:), tweet);
         }
     } @catch (__unused NSException* exception) {
     }

@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "트렌딩 콘텐츠 제거";
 "HIDE_TRENDS_DETAIL" = "탐색하기 탭에서 검색 바만 표시하고, 모든 트렌드, 뉴스와 페이지 탭을 제거합니다.";
 
-"TAB_BAR_THEMING_TITLE" = "클래식 내비게이션 바";
-"TAB_BAR_THEMING_DETAIL" = "내비게이션 바의 선택된 항목에 대해 테마 컬러를 적용합니다.";
+"TAB_BAR_THEMING_TITLE" = "내비게이션 바 색 입히기";
+"TINT_TAB_BAR_TITLE" = "탭 바 색 입히기";
 
 "DISABLE_RTL_TITLE" = "LTR 레이아웃 강제";
 "DISABLE_RTL_DETAIL" = "아랍어 등 RTL(오른쪽에서 왼쪽으로 읽는) 언어 환경에서도 LTR(왼쪽에서 오른쪽으로 읽는) 레이아웃을 강제합니다.";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "아이콘 라벨 표시";
 "RESTORE_TAB_LABELS_DETAIL" = "내비게이션 바의 아이콘 아래에 라벨을 표시합니다.";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "트위터 아이콘 색 입히기";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "홈 상단의 트위터 아이콘에 현재 테마 색을 입힙니다.";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "로고 색 입히기";
 
 "REFRESH_PILL_TEXT" = "새 게시물";
 "REFRESH_PILL_LABEL_TITLE" = "새로고침 알림에 라벨 추가";

@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "Trend içeriği gizle";
 "HIDE_TRENDS_DETAIL" = "Keşfet sekmesinde yalnızca arama çubuğunu gösterir; tüm trendleri, haberleri ve sayfa sekmelerini gizler.";
 
-"TAB_BAR_THEMING_TITLE" = "Klasik gezinme çubuğu";
-"TAB_BAR_THEMING_DETAIL" = "Seçilen gezinme öğesine vurgu renginizi uygular.";
+"TAB_BAR_THEMING_TITLE" = "Gezinme çubuğunu renklendir";
+"TINT_TAB_BAR_TITLE" = "Sekme çubuğunu renklendir";
 
 "DISABLE_RTL_TITLE" = "Soldan sağa düzen";
 "DISABLE_RTL_DETAIL" = "RTL dillerde bile LTR düzenini zorla.";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "Gezinme etiketleri";
 "RESTORE_TAB_LABELS_DETAIL" = "Gezinme çubuğundaki simgelerin altında etiketleri göster (eski Twitter gibi).";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Twitter simgesini renklendir";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "Üst çubuktaki Twitter simgesine vurgu rengini uygular.";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Logoyu renklendir";
 
 "REFRESH_PILL_TEXT" = "Gönderildi";
 "REFRESH_PILL_LABEL_TITLE" = "Yenileme hapına etiket ekle";

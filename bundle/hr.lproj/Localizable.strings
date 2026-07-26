@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "Sakrij popularni sadržaj";
 "HIDE_TRENDS_DETAIL" = "Prikaži samo traku za pretragu na kartici Istraži, skrivajući sve trendove, vijesti i kartice stranice.";
 
-"TAB_BAR_THEMING_TITLE" = "Klasična navigacijska traka";
-"TAB_BAR_THEMING_DETAIL" = "Primjenjuje vašu naglašenu boju na trenutno odabranu stavku.";
+"TAB_BAR_THEMING_TITLE" = "Oboji navigacijsku traku";
+"TINT_TAB_BAR_TITLE" = "Oboji traku s karticama";
 
 "DISABLE_RTL_TITLE" = "Korištenje izgleda s lijeva na desno";
 "DISABLE_RTL_DETAIL" = "Prisilno koristi LTR čak i za RTL jezike.";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "Oznake navigacije";
 "RESTORE_TAB_LABELS_DETAIL" = "Prikaži oznake ispod ikona u navigaciji kao u starom Twitteru.";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Oboji Twitter ikonu";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "Primjenjuje naglašenu boju na Twitter ikonu u gornjoj traci.";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Oboji logo";
 
 "REFRESH_PILL_TEXT" = "Objavljeno";
 "REFRESH_PILL_LABEL_TITLE" = "Dodaj oznaku na traku za osvježavanje";

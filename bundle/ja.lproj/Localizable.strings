@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "トレンドを非表示";
 "HIDE_TRENDS_DETAIL" = "[話題を検索] タブで検索バーのみを表示し、すべてのトレンド、ニュース、ページタブを非表示にします。";
 
-"TAB_BAR_THEMING_TITLE" = "新しいタブバー";
-"TAB_BAR_THEMING_DETAIL" = "現在選択されているタブ項目にアクセントカラーを適用します。";
+"TAB_BAR_THEMING_TITLE" = "ナビゲーションバーを着色";
+"TINT_TAB_BAR_TITLE" = "タブバーを着色";
 
 "DISABLE_RTL_TITLE" = "左から右へのレイアウトを使用";
 "DISABLE_RTL_DETAIL" = "右から左に読む言語の場合でも、左から右へのレイアウトを強制します。";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "タブのラベル";
 "RESTORE_TAB_LABELS_DETAIL" = "タブバーのアイコンの下にラベルを表示します。";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Twitterアイコンの色";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "上部バーのTwitterアイコンにアクセントカラーを適用できます。";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "ロゴを着色";
 
 "REFRESH_PILL_TEXT" = "新しいポスト";
 "REFRESH_PILL_LABEL_TITLE" = "更新ピルにラベルを追加";

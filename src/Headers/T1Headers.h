@@ -85,10 +85,6 @@
 @property (nonatomic, strong) TFNTwitterAccount* account;
 @end
 
-@interface T1SettingsViewController : TFNItemsDataViewController
-@property (nonatomic, strong) TFNTwitterAccount* account;
-@end
-
 #pragma mark - Profile
 
 @interface T1ProfileActionButtonSpec : NSObject
@@ -112,17 +108,10 @@
 
 #pragma mark - Status views
 
-@protocol T1StatusInlineActionButtonDelegate <NSObject>
-@end
 @protocol TTAStatusInlineActionButtonDelegate <NSObject>
 @end
 
 @interface TTAStatusInlineShareButton : UIView
-@property (nonatomic) __weak id<T1StatusInlineActionButtonDelegate> delegate;
-@end
-
-@interface TTAStatusInlineReplyButton : UIView
-@property (nonatomic) __weak id<T1StatusInlineActionButtonDelegate> delegate;
 @end
 
 @interface T1PersistentComposeViewController : UIViewController
@@ -130,15 +119,6 @@
 @end
 
 @protocol TTACoreStatusViewEventHandler <NSObject>
-@end
-
-@interface T1StatusCell : UITableViewCell <TTACoreStatusViewEventHandler>
-@end
-
-@interface T1StatusInlineActionsView
-    : UIView <T1StatusInlineActionButtonDelegate>
-@property (readonly, nonatomic) id viewModel;
-@property (nonatomic) id delegate;
 @end
 
 @interface TTAStatusInlineActionsView
@@ -149,18 +129,6 @@
 
 @interface T1StandardStatusView : UIView
 @property (nonatomic) __weak id<TTACoreStatusViewEventHandler> eventHandler;
-@property (readonly, nonatomic) UIView* visibleInlineActionsView;
-@end
-
-@interface T1TweetDetailsFocalStatusView : UIView
-@property (nonatomic) __weak id<TTACoreStatusViewEventHandler> eventHandler;
-@end
-
-@interface T1ConversationFocalStatusView : UIView
-@property (nonatomic) __weak id<TTACoreStatusViewEventHandler> eventHandler;
-- (void)layoutSubviews;
-@property (nonatomic, readonly) id viewModel;
-- (void)enumerateSubviewsRecursively:(void (^)(UIView*))block;
 @end
 
 @interface T1TweetComposeViewController : UIViewController
@@ -194,11 +162,7 @@
 @end
 
 @interface T1BaseWebViewController : UIViewController
-- (instancetype)initWithURL:(NSURL*)url;
-- (instancetype)initWithAccount:(id)account;
-- (void)setRootURL:(NSURL*)url;
 - (void)setCurrentURL:(NSURL*)url;
-@property (nonatomic, readonly) NSURL* currentURL;
 - (WKWebView*)webView;
 @end
 
@@ -220,15 +184,7 @@
 
 #pragma mark - Status & timeline text
 
-@interface T1StatusBodyTextView : UIView
-@property (readonly, nonatomic) id viewModel;
-@end
-
-@interface _TtC10TwitterURT25URTTimelineTrendViewModel : NSObject
-@property (nonatomic, readonly) NSDictionary* scribeItem;
-@end
-
-@interface T1ConversationFooterTextView : TFNAttributedTextView
+@interface T1ConversationFooterTextView : UIView
 @property (nonatomic, readonly) id viewModel;
 - (void)updateFooterTextView;
 @end

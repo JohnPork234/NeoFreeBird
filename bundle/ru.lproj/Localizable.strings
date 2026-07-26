@@ -195,8 +195,8 @@
 "HIDE_TRENDS_TITLE" = "Скрыть актуальные темы";
 "HIDE_TRENDS_DETAIL" = "Показывать только строку поиска на вкладке «Обзор», скрывая все тренды, новости и вкладки страниц.";
 
-"TAB_BAR_THEMING_TITLE" = "Классическая навигация";
-"TAB_BAR_THEMING_DETAIL" = "Применяет ваш цвет к выбранной вкладке.";
+"TAB_BAR_THEMING_TITLE" = "Покрасить панель навигации";
+"TINT_TAB_BAR_TITLE" = "Покрасить панель вкладок";
 
 "DISABLE_RTL_TITLE" = "Левостороннее отображение";
 "DISABLE_RTL_DETAIL" = "Принудительно слева-направо, даже для RTL-языков.";
@@ -254,8 +254,7 @@
 "RESTORE_TAB_LABELS_TITLE" = "Подписи под иконками";
 "RESTORE_TAB_LABELS_DETAIL" = "Отображать подписи под значками как в старом Twitter.";
 
-"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Покрасить иконку Twitter";
-"COLOR_TWITTER_ICON_IN_TOP_BAR_DETAIL" = "Применяет акцентный цвет к иконке Twitter на верхней панели.";
+"COLOR_TWITTER_ICON_IN_TOP_BAR_TITLE" = "Покрасить логотип";
 
 "REFRESH_PILL_TEXT" = "Пост отправлен";
 "REFRESH_PILL_LABEL_TITLE" = "Добавить надпись на плашку обновления";
