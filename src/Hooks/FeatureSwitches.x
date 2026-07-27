@@ -141,6 +141,7 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         [key
             isEqualToString:@"grok_timeline_slideshow_imagine_menu_is_enabled"] ||
         [key isEqualToString:@"grok_ios_edit_photo_post_button_enabled"] ||
+        [key isEqualToString:@"x_ios_photo_editor_grok_imagine_enabled"] ||
         [key isEqualToString:@"grok_ios_imagine_cta_focal_enabled"] ||
         [key isEqualToString:@"grok_ios_imagine_cta_reply_enabled"] ||
         [key isEqualToString:@"grok_ios_imagine_cta_timeline_enabled"] ||
@@ -209,6 +210,19 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
     if ([key isEqualToString:@"ios_tav_default_closed_captions_enabled"] ||
         [key isEqualToString:@"ios_audio_transcription_subtitles_vod_enabled"]) {
         return [BHTSettings boolForKey:@"disable_video_captions"] ? @NO : nil;
+    }
+
+    // Holds the idle timer open for a few minutes after every touch, refreshed
+    // on each one. Never force the companion idle-seconds key: zero there
+    // means never sleep at all.
+    if ([key isEqualToString:@"ios_prevent_sleep_app_wide_enabled"]) {
+        return @NO;
+    }
+
+    // Routes the built-in download through a watermarking downloader. Off by
+    // default, forced off so a server flip can't reach it.
+    if ([key isEqualToString:@"media_download_watermarked_video_enabled"]) {
+        return @NO;
     }
 
     // Custom navigation: per-panel tab gates, forced on so every panel exists for
@@ -323,6 +337,15 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         [key isEqualToString:@"ios_notifications_blue_verified_introductory_"
                              @"offer_prefix_visible"] ||
         [key isEqualToString:@"dash_items_download_grok_enabled"]) {
+        return @NO;
+    }
+
+    // XChat upsells. The rate-limit key only decides whether the composer
+    // watches the send result to raise a paywall; the message is sent either
+    // way. Grok in DMs is paywalled behind a minimum tier, so it goes with the
+    // rest of the upsells rather than being unlocked.
+    if ([key isEqualToString:@"xchat_message_request_rate_limit_upsell"] ||
+        [key isEqualToString:@"xchat_plaintext_grok_enabled"]) {
         return @NO;
     }
 
@@ -469,6 +492,33 @@ static NSString* FeatureSwitchStringOverrideForKey(NSString* key) {
 
 - (BOOL)hasNonDefaultValueForKey:(NSString*)key {
     return FeatureSwitchOverrideValueForKey(key) ? YES : %orig;
+}
+
+%end
+
+// XChat reads its switches from its own store rather than TFSFeatureSwitches,
+// so the xchat_ keys need the same treatment here.
+
+%hook _TtC16XFeatureSwitches18FeatureSwitchStore
+
+- (BOOL)boolForKey:(NSString*)key {
+    NSNumber* override = FeatureSwitchOverrideValueForKey(key);
+    return override ? override.boolValue : %orig;
+}
+
+- (BOOL)boolForKey:(NSString*)key defaultValue:(BOOL)defaultValue {
+    NSNumber* override = FeatureSwitchOverrideValueForKey(key);
+    return override ? override.boolValue : %orig;
+}
+
+- (NSString*)stringForKey:(NSString*)key {
+    NSString* override = FeatureSwitchStringOverrideForKey(key);
+    return override ?: %orig;
+}
+
+- (NSString*)stringForKey:(NSString*)key defaultValue:(NSString*)defaultValue {
+    NSString* override = FeatureSwitchStringOverrideForKey(key);
+    return override ?: %orig;
 }
 
 %end
