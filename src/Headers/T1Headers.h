@@ -106,6 +106,41 @@
 @property (retain, nonatomic) T1ProfileUserViewModel* viewModel;
 @end
 
+// The redesigned profile header's action button row and its metrics.
+
+@interface T1ProfileActionButtonsController : NSObject
+@property (nonatomic) UIEdgeInsets contentInsets;
+@property (readonly, nonatomic) UIView* rowView;
+@property (readonly, nonatomic) NSArray<UIView*>* visibleButtons;
+@property (readonly, nonatomic) CGRect occupiedContentRect;
+@end
+
+@interface XDSButtonBorder : NSObject
+@property (readonly, nonatomic) CGFloat width;
+@property (readonly, nonatomic) UIColor* color;
+@end
+
+@interface XDSButtonRow : UIView
+@end
+
+@interface XDSButtonSizeClass : NSObject
++ (instancetype)large;
+@property (readonly, nonatomic) CGFloat height;
+@property (readonly, nonatomic) CGFloat iconSize;
+@property (readonly, nonatomic) CGFloat interButtonSpacing;
+@end
+
+@interface XDSButtonDisplayStyle : NSObject
++ (instancetype)outlined;
+@property (readonly, nonatomic) UIColor* foregroundColor;
+@property (readonly, nonatomic) XDSButtonBorder* border;
+@end
+
+@interface XDSButtonCornerRadius : NSObject
++ (instancetype)pill;
+- (CGFloat)resolvedForHeight:(CGFloat)height;
+@end
+
 #pragma mark - Status views
 
 @protocol TTAStatusInlineActionButtonDelegate <NSObject>
