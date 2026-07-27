@@ -5,6 +5,7 @@
 //  Created by BandarHelal
 //
 
+#import <CoreText/CoreText.h>
 #import <UIKit/UIKit.h>
 #import "TFSHeaders.h"
 
@@ -49,10 +50,18 @@
 @interface TFNAttributedTextModel : NSObject
 @property (copy, nonatomic) NSAttributedString* attributedString;
 - (instancetype)initWithAttributedString:(NSMutableAttributedString*)arg;
+- (void)fitToSize:(CGSize)size;
+- (CTFrameRef)coreTextFrame;
 @end
 
 @interface TFNAttributedTextView : UIView
-- (void)setTextModel:(id)model;
+@property (strong, nonatomic) TFNAttributedTextModel* textModel;
+@end
+
+// TFN draws with CoreText and leaves CTFont/CTParagraphStyle values under the
+// UIKit attribute keys; this rewrites them so TextKit can render the string.
+@interface NSAttributedString (TFNUIKitSafe)
+- (NSAttributedString*)tfnUIKitSafeAttributedString;
 @end
 
 @interface TFNActiveTextItem : NSObject

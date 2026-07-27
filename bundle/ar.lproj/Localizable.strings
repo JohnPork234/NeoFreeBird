@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "تأكيد المتابعة";
 "FOLLOW_CONFIRM_DETAIL" = "طلب تأكيد قبل المتابعة.";
 
-"COPY_PROFILE_INFO_TITLE" = "نسخ معلومات الملف الشخصي";
-"COPY_PROFILE_INFO_DETAIL" = "نسخ الاسم أو النبذة أو غيرها بنقرة واحدة.";
-
 "DISABLE_ARTICLES_TITLE" = "بدون تبويب مقالات";
 "DISABLE_ARTICLES_DETAIL" = "إخفاء تبويب المقالات.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "بدون تبويب أبرز التغريدات";
 "DISABLE_HIGHLIGHTS_DETAIL" = "إخفاء تبويب المميز.";
+
+"LEGACY_PROFILE_TITLE" = "الملف الشخصي القديم";
+"LEGACY_PROFILE_DETAIL" = "استعادة ترويسة الملف الشخصي القديمة وتبويبين منفصلين للصور والفيديو.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "بدون زر متابعة في التغريدات";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "إخفاء زر المتابعة في التغريدات.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "إخفاء الخطوط الزمنية المخصصة";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "إزالة زر الإضافة من تبويبات الخط الزمني الرئيسي.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "أصوات السحب للتحديث";
 
 "HIDE_TRENDS_TITLE" = "إخفاء المحتوى الرائج";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "نسخ النبذة";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "نسخ اسم المستخدم";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "نسخ اسم المستخدم الكامل";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "نسخ رابط النبذة";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "نسخ الموقع";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "تغيير المظهر";

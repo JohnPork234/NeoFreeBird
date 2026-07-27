@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Подтверждение подписки";
 "FOLLOW_CONFIRM_DETAIL" = "Спрашивать перед подпиской.";
 
-"COPY_PROFILE_INFO_TITLE" = "Копировать информацию профиля";
-"COPY_PROFILE_INFO_DETAIL" = "Копировать имя, био и другое одним нажатием.";
-
 "DISABLE_ARTICLES_TITLE" = "Скрыть вкладку Статьи";
 "DISABLE_ARTICLES_DETAIL" = "Спрятать вкладку «Статьи» в профилях.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "Скрыть вкладку Избранное";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Спрятать вкладку «Избранное» в профилях.";
+
+"LEGACY_PROFILE_TITLE" = "Старый профиль";
+"LEGACY_PROFILE_DETAIL" = "Возвращает старую шапку профиля и отдельные вкладки «Фото» и «Видео».";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "Скрыть кнопку Подписаться";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Скрывает кнопку Подписаться в твитах.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Скрыть свои ленты";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Убирает кнопку «Добавить» из вкладок главной ленты.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Звуки при обновлении";
 
 "HIDE_TRENDS_TITLE" = "Скрыть актуальные темы";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Скопировать био";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Скопировать имя пользователя";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Скопировать полное имя";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Скопировать ссылку из био";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Скопировать местоположение";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Сменить тему";

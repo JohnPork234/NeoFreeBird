@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Confirmar seguimiento";
 "FOLLOW_CONFIRM_DETAIL" = "Pide confirmación antes de seguir a alguien.";
 
-"COPY_PROFILE_INFO_TITLE" = "Copiar detalles del perfil";
-"COPY_PROFILE_INFO_DETAIL" = "Copia nombres, biografías y más con un toque.";
-
 "DISABLE_ARTICLES_TITLE" = "Sin pestaña de artículos";
 "DISABLE_ARTICLES_DETAIL" = "Oculta la pestaña de artículos en perfiles.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "Sin pestaña de destacados";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Oculta la pestaña de destacados.";
+
+"LEGACY_PROFILE_TITLE" = "Perfil clásico";
+"LEGACY_PROFILE_DETAIL" = "Restaura el encabezado de perfil anterior y pestañas de fotos y videos separadas.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "Sin botón Seguir en Tweets";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Oculta el botón Seguir en los Tweets.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Ocultar líneas de tiempo personalizadas";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Elimina el botón Añadir de las pestañas de la línea de tiempo de inicio.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Sonidos al actualizar";
 
 "HIDE_TRENDS_TITLE" = "Ocultar contenido de tendencia";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Copiar bio";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Copiar usuario";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Copiar usuario completo";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Copiar enlace de bio";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Copiar ubicación";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Cambiar tema";

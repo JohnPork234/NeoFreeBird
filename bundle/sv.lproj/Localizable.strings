@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Bekräfta följningar";
 "FOLLOW_CONFIRM_DETAIL" = "Fråga innan du följer någon.";
 
-"COPY_PROFILE_INFO_TITLE" = "Kopiera profilinfo";
-"COPY_PROFILE_INFO_DETAIL" = "Kopiera användarnamn, biografier, och mer med ett tryck.";
-
 "DISABLE_ARTICLES_TITLE" = "Ingen Artiklar-flik";
 "DISABLE_ARTICLES_DETAIL" = "Dölj Artiklar-fliken i profiler.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "Ingen 'Höjdpunkter'-flik";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Dölj Höjdpunkter-fliken i profiler.";
+
+"LEGACY_PROFILE_TITLE" = "Klassisk profil";
+"LEGACY_PROFILE_DETAIL" = "Återställer det gamla profilhuvudet och separata flikar för foton och videor.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "Dölj 'Följ' knappen på Tweets";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Visar inte följknappen på Tweets.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Dölj anpassade tidslinjer";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Ta bort Lägg till-knappen från flikarna på hemtidslinjen.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Ljud vid uppdatering";
 
 "HIDE_TRENDS_TITLE" = "Dölj trendande innehåll";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Kopiera biografi";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Kopiera användarnamn";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Kopiera namn";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Kopiera webbsida";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Kopiera plats";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Ändra tema";

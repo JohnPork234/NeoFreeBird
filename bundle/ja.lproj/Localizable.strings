@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "フォローの確認";
 "FOLLOW_CONFIRM_DETAIL" = "誰かをフォローする際に確認ダイアログを表示します。";
 
-"COPY_PROFILE_INFO_TITLE" = "プロフィールの詳細をコピー";
-"COPY_PROFILE_INFO_DETAIL" = "ユーザー名、プロフィールなどをワンタップでコピーできるようにします。";
-
 "DISABLE_ARTICLES_TITLE" = "記事タブを非表示";
 "DISABLE_ARTICLES_DETAIL" = "プロフィールから [記事] タブを非表示にします。";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "ハイライトタブを非表示";
 "DISABLE_HIGHLIGHTS_DETAIL" = "プロフィールから [ハイライト] タブを非表示にします。";
+
+"LEGACY_PROFILE_TITLE" = "以前のプロフィール";
+"LEGACY_PROFILE_DETAIL" = "以前のプロフィールヘッダーに戻し、[写真] と [動画] タブを分けます。";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "フォローボタンを非表示";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "ツイートにある [フォロー] ボタンを非表示にします。";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "カスタムタイムラインを非表示";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "ホームタイムラインのタブから [追加] ボタンを削除します。";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "引っ張って更新のサウンド";
 
 "HIDE_TRENDS_TITLE" = "トレンドを非表示";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "プロフィールをコピー";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "ユーザー名をコピー";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "名前をコピー";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "ウェブサイトをコピー";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "位置情報をコピー";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "テーマ";

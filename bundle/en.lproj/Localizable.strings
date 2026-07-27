@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Confirm follows";
 "FOLLOW_CONFIRM_DETAIL" = "Ask before following someone.";
 
-"COPY_PROFILE_INFO_TITLE" = "Copy profile details";
-"COPY_PROFILE_INFO_DETAIL" = "Copy usernames, bios, and more with one tap.";
-
 "DISABLE_ARTICLES_TITLE" = "No Articles tab";
 "DISABLE_ARTICLES_DETAIL" = "Hide the Articles tab in profiles.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "No Highlights tab";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Hide the Highlights tab in profiles.";
+
+"LEGACY_PROFILE_TITLE" = "Legacy profile";
+"LEGACY_PROFILE_DETAIL" = "Restore the old profile header and separate Photos and Videos tabs.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "No Follow button on Tweets";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Hides the Follow button on Tweets.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Hide custom timelines";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Remove the Add button from the home timeline tabs.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Pull-to-refresh sounds";
 
 "HIDE_TRENDS_TITLE" = "Hide trending content";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Copy bio";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Copy username";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Copy name";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Copy website";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Copy location";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Theme";

@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Підтвердження читань";
 "FOLLOW_CONFIRM_DETAIL" = "Запитувати перед тим, як почати читати.";
 
-"COPY_PROFILE_INFO_TITLE" = "Копіювати інформацію профілю";
-"COPY_PROFILE_INFO_DETAIL" = "Копіюйте біо, ім'я користувача та інше одним натисканням.";
-
 "DISABLE_ARTICLES_TITLE" = "Приховати Статті";
 "DISABLE_ARTICLES_DETAIL" = "Прибрати вкладку «Статті» в профілі.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "Приховати Вибране";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Прибрати вкладку «Вибране».";
+
+"LEGACY_PROFILE_TITLE" = "Старий профіль";
+"LEGACY_PROFILE_DETAIL" = "Повертає стару шапку профілю та окремі вкладки «Фото» та «Відео».";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "Без кнопки «Стежити» у твітах";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Приховує кнопку «Стежити» у твітах.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Приховати власні стрічки";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Прибрати кнопку «Додати» з вкладок головної стрічки.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Звуки під час оновлення";
 
 "HIDE_TRENDS_TITLE" = "Приховати трендовий контент";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Копіювати біо";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Копіювати ім’я користувача";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Копіювати повне ім’я";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Копіювати посилання з біо";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Копіювати місцезнаходження";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Змінити тему";

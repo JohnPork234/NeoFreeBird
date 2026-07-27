@@ -85,62 +85,6 @@
 @property (nonatomic, strong) TFNTwitterAccount* account;
 @end
 
-#pragma mark - Profile
-
-@interface T1ProfileActionButtonSpec : NSObject
-- (instancetype)initWithPosition:(NSUInteger)position
-                        priority:(NSUInteger)priority
-                 visibilityBlock:(BOOL (^)(double))visibilityBlock
-             buttonCreationBlock:(UIView* (^)(void))buttonCreationBlock;
-@end
-
-@interface T1ProfileUserViewModel : NSObject
-@property (readonly, copy, nonatomic) NSString* location;
-@property (readonly, copy, nonatomic) NSString* fullName;
-@property (readonly, copy, nonatomic) NSString* username;
-@property (readonly, copy, nonatomic) NSString* bio;
-@property (readonly, copy, nonatomic) NSString* url;
-@end
-
-@interface T1ProfileHeaderViewController : UIViewController
-@property (retain, nonatomic) T1ProfileUserViewModel* viewModel;
-@end
-
-// The redesigned profile header's action button row and its metrics.
-
-@interface T1ProfileActionButtonsController : NSObject
-@property (nonatomic) UIEdgeInsets contentInsets;
-@property (readonly, nonatomic) UIView* rowView;
-@property (readonly, nonatomic) NSArray<UIView*>* visibleButtons;
-@property (readonly, nonatomic) CGRect occupiedContentRect;
-@end
-
-@interface XDSButtonBorder : NSObject
-@property (readonly, nonatomic) CGFloat width;
-@property (readonly, nonatomic) UIColor* color;
-@end
-
-@interface XDSButtonRow : UIView
-@end
-
-@interface XDSButtonSizeClass : NSObject
-+ (instancetype)large;
-@property (readonly, nonatomic) CGFloat height;
-@property (readonly, nonatomic) CGFloat iconSize;
-@property (readonly, nonatomic) CGFloat interButtonSpacing;
-@end
-
-@interface XDSButtonDisplayStyle : NSObject
-+ (instancetype)outlined;
-@property (readonly, nonatomic) UIColor* foregroundColor;
-@property (readonly, nonatomic) XDSButtonBorder* border;
-@end
-
-@interface XDSButtonCornerRadius : NSObject
-+ (instancetype)pill;
-- (CGFloat)resolvedForHeight:(CGFloat)height;
-@end
-
 #pragma mark - Status views
 
 @protocol TTAStatusInlineActionButtonDelegate <NSObject>
@@ -222,6 +166,12 @@
 @interface T1ConversationFooterTextView : UIView
 @property (nonatomic, readonly) id viewModel;
 - (void)updateFooterTextView;
+@end
+
+// Hooked for selectable profile text
+@interface T1ProfileUserInfoView : UIView
+@property (nonatomic, readonly) UIButton* locationButton;
+@property (nonatomic, getter=isBioExpanded) BOOL bioExpanded;
 @end
 
 // Hooked for unrounded follower/following counts

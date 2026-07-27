@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Takip onayı";
 "FOLLOW_CONFIRM_DETAIL" = "Birini takip etmeden önce onay iste.";
 
-"COPY_PROFILE_INFO_TITLE" = "Profil bilgilerini kopyala";
-"COPY_PROFILE_INFO_DETAIL" = "Kullanıcı adı, bio ve daha fazlasını tek dokunuşla kopyala.";
-
 "DISABLE_ARTICLES_TITLE" = "Makale sekmesini gizle";
 "DISABLE_ARTICLES_DETAIL" = "Profildeki ‘Makaleler’ sekmesini gizle.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "Öne çıkanlar sekmesini gizle";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Profildeki ‘Öne çıkanlar’ sekmesini gizle.";
+
+"LEGACY_PROFILE_TITLE" = "Eski profil";
+"LEGACY_PROFILE_DETAIL" = "Eski profil başlığını ve ayrı ‘Fotoğraflar’ ile ‘Videolar’ sekmelerini geri getirir.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "Tweetlerde Takip Et düğmesi yok";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Tweetlerdeki Takip Et düğmesini gizler.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Özel zaman akışlarını gizle";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Ana zaman akışı sekmelerinden Ekle düğmesini kaldırır.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Yenileme sesleri";
 
 "HIDE_TRENDS_TITLE" = "Trend içeriği gizle";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Biyografiyi kopyala";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Kullanıcı adını kopyala";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Tam kullanıcı adını kopyala";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Biyo linkini kopyala";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Konumu kopyala";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Temayı değiştir";

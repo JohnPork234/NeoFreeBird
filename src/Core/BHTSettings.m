@@ -175,11 +175,6 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsPages(void) {
                       @"default": @NO,
                       @"type": @"toggle"},
                     @{
-                        @"key": @"copy_profile_info",
-                        @"default": @NO,
-                        @"type": @"toggle"
-                    },
-                    @{
                         @"key": @"disable_articles",
                         @"default": @YES,
                         @"type": @"toggle"
@@ -187,6 +182,11 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsPages(void) {
                     @{
                         @"key": @"disable_highlights",
                         @"default": @YES,
+                        @"type": @"toggle"
+                    },
+                    @{
+                        @"key": @"legacy_profile",
+                        @"default": @NO,
                         @"type": @"toggle"
                     },
                     @{
@@ -388,7 +388,6 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsIndex(void) {
         @"video_layer_caption": @"disable_video_captions",
         @"autoHighestLoad": @"auto_highest_load",
         @"follow_con": @"follow_confirm",
-        @"CopyProfileInfo": @"copy_profile_info",
         @"disableArticles": @"disable_articles",
         @"disableHighlights": @"disable_highlights",
         @"TweetToImage": @"tweet_to_image",

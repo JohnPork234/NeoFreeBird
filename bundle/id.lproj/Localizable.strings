@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Konfirmasi follow";
 "FOLLOW_CONFIRM_DETAIL" = "Tanya dulu sebelum mengikuti akun.";
 
-"COPY_PROFILE_INFO_TITLE" = "Salin info profil";
-"COPY_PROFILE_INFO_DETAIL" = "Salin username, bio, dan lainnya dengan sekali ketuk.";
-
 "DISABLE_ARTICLES_TITLE" = "Tanpa tab Artikel";
 "DISABLE_ARTICLES_DETAIL" = "Sembunyikan tab Artikel di profil.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "Tanpa tab Sorotan";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Sembunyikan tab Sorotan di profil.";
+
+"LEGACY_PROFILE_TITLE" = "Profil lama";
+"LEGACY_PROFILE_DETAIL" = "Kembalikan header profil lama dan tab Foto dan Video terpisah.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "Tanpa Tombol Ikuti di Tweet";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Sembunyikan tombol Ikuti pada Tweet.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Sembunyikan linimasa khusus";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Hapus tombol Tambah dari tab linimasa beranda.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Suara saat menyegarkan";
 
 "HIDE_TRENDS_TITLE" = "Sembunyikan konten trending";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Salin bio";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Salin username";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Salin username lengkap";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Salin link bio";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Salin lokasi";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Ganti tema";

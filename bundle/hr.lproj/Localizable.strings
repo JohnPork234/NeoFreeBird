@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Potvrda praćenja";
 "FOLLOW_CONFIRM_DETAIL" = "Zatraži potvrdu prije praćenja korisnika.";
 
-"COPY_PROFILE_INFO_TITLE" = "Kopiraj podatke profila";
-"COPY_PROFILE_INFO_DETAIL" = "Kopiraj korisnička imena, biografiju i drugo jednim dodirom.";
-
 "DISABLE_ARTICLES_TITLE" = "Sakrij karticu Članci";
 "DISABLE_ARTICLES_DETAIL" = "Ukloni karticu 'Članci' iz profila.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "Sakrij karticu Istaknuto";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Ukloni karticu 'Istaknuto' iz profila.";
+
+"LEGACY_PROFILE_TITLE" = "Stari profil";
+"LEGACY_PROFILE_DETAIL" = "Vraća stari izgled zaglavlja profila i odvojene kartice za fotografije i videozapise.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "Bez gumba za praćenje u tweetovima";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Sakriva gumb za praćenje u tweetovima.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Sakrij prilagođene vremenske crte";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Ukloni gumb Dodaj iz kartica početne vremenske crte.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Zvukovi pri osvježavanju";
 
 "HIDE_TRENDS_TITLE" = "Sakrij popularni sadržaj";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Kopiraj biografiju";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Kopiraj korisničko ime";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Kopiraj puno korisničko ime";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Kopiraj poveznicu iz bio";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Kopiraj lokaciju";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Promijeni temu";

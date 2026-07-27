@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "Folgen bestätigen";
 "FOLLOW_CONFIRM_DETAIL" = "Vor dem Folgen nachfragen.";
 
-"COPY_PROFILE_INFO_TITLE" = "Profildetails kopieren";
-"COPY_PROFILE_INFO_DETAIL" = "Benutzernamen, Bios und mehr mit einem Tipp kopieren.";
-
 "DISABLE_ARTICLES_TITLE" = "Kein Artikel-Tab";
 "DISABLE_ARTICLES_DETAIL" = "Blendet den Artikel-Tab in Profilen aus.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "Kein Highlights-Tab";
 "DISABLE_HIGHLIGHTS_DETAIL" = "Blendet den Highlights-Tab in Profilen aus.";
+
+"LEGACY_PROFILE_TITLE" = "Klassisches Profil";
+"LEGACY_PROFILE_DETAIL" = "Stellt den alten Profil-Header und getrennte Foto- und Video-Tabs wieder her.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "Keine Folgen-Schaltfläche bei Tweets";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "Blendet die Folgen-Schaltfläche in Tweets aus.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "Benutzerdefinierte Timelines ausblenden";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "Entfernt die Hinzufügen-Schaltfläche aus den Timeline-Tabs der Startseite.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "Töne beim Aktualisieren";
 
 "HIDE_TRENDS_TITLE" = "Trending-Inhalte ausblenden";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "Bio kopieren";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "Benutzernamen kopieren";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "Vollen Benutzernamen kopieren";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "Bio-Link kopieren";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "Ort kopieren";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "Theme";

@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "팔로우 시 확인 창 표시";
 "FOLLOW_CONFIRM_DETAIL" = "누군가를 팔로우하기 전에 다시 한 번 물어봅니다.";
 
-"COPY_PROFILE_INFO_TITLE" = "프로필 정보 복사 버튼 표시";
-"COPY_PROFILE_INFO_DETAIL" = "닉네임, 사용자 이름, 자기소개 등을 복사할 수 있는 버튼을 표시합니다.";
-
 "DISABLE_ARTICLES_TITLE" = "아티클 탭 제거";
 "DISABLE_ARTICLES_DETAIL" = "프로필의 아티클 탭을 제거합니다.";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "하이라이트 탭 제거";
 "DISABLE_HIGHLIGHTS_DETAIL" = "프로필의 하이라이트 탭을 제거합니다.";
+
+"LEGACY_PROFILE_TITLE" = "이전 프로필";
+"LEGACY_PROFILE_DETAIL" = "이전 프로필 헤더와 분리된 사진·동영상 탭으로 되돌립니다.";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "트윗 상세보기 화면에서 팔로우 버튼 제거";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "화면 우측 상단 팔로우 버튼을 제거합니다.";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "커스텀 타임라인 제거";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "홈 타임라인 탭에서 추가 버튼을 제거합니다.";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "당겨서 새로고침 소리";
 
 "HIDE_TRENDS_TITLE" = "트렌딩 콘텐츠 제거";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "자기소개 복사";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "아이디 복사";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "닉네임 복사";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "웹 사이트 복사";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "위치 복사";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "테마";

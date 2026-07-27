@@ -183,6 +183,18 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @(![BHTSettings boolForKey:@"disable_highlights"]);
     }
 
+    // The profile redesign: the reworked header and timelines that fold Photos
+    // and Videos into one Media tab. The variant key styles the reworked
+    // header's action buttons, forced to its default while the rework is off.
+    if ([key isEqualToString:@"ios_profile_redesign_new_timelines_enabled"] ||
+        [key isEqualToString:@"ios_profile_redesign_header_rework_enabled"]) {
+        return [BHTSettings boolForKey:@"legacy_profile"] ? @NO : nil;
+    }
+
+    if ([key isEqualToString:@"ios_profile_redesign_header_buttons_variant"]) {
+        return [BHTSettings boolForKey:@"legacy_profile"] ? @0 : nil;
+    }
+
     // Age verification bypass
     if ([key hasPrefix:@"ios_age_assurance"] ||
         [key isEqualToString:@"grok_settings_age_restriction_enabled"]) {

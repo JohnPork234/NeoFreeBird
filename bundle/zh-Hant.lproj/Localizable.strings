@@ -125,14 +125,14 @@
 "FOLLOW_CONFIRM_TITLE" = "確認跟隨";
 "FOLLOW_CONFIRM_DETAIL" = "跟隨前顯示確認視窗。";
 
-"COPY_PROFILE_INFO_TITLE" = "複製個人資料資訊";
-"COPY_PROFILE_INFO_DETAIL" = "一鍵複製用戶名稱、簡介等資訊。";
-
 "DISABLE_ARTICLES_TITLE" = "隱藏「文章」分頁";
 "DISABLE_ARTICLES_DETAIL" = "在個人資料頁面隱藏文章分頁。";
 
 "DISABLE_HIGHLIGHTS_TITLE" = "隱藏「精選」分頁";
 "DISABLE_HIGHLIGHTS_DETAIL" = "在個人頁面隱藏精選內容。";
+
+"LEGACY_PROFILE_TITLE" = "舊版個人檔案";
+"LEGACY_PROFILE_DETAIL" = "恢復舊版個人檔案頁首，並分開顯示相片和影片分頁。";
 
 "HIDE_FOLLOW_BUTTON_TITLE" = "不顯示關注按鈕";
 "HIDE_FOLLOW_BUTTON_DETAIL" = "隱藏推文中的關注按鈕。";
@@ -193,6 +193,7 @@
 "HIDE_CUSTOM_TIMELINES_TITLE" = "隱藏自訂時間軸";
 "HIDE_CUSTOM_TIMELINES_DETAIL" = "從首頁時間軸分頁中移除新增按鈕。";
 
+
 "RESTORE_REFRESH_SOUNDS_TITLE" = "下拉重新整理音效";
 
 "HIDE_TRENDS_TITLE" = "隱藏熱門內容";
@@ -238,11 +239,6 @@
 /*App icon*/
 
 /*Copy profile info*/
-"COPY_PROFILE_INFO_MENU_OPTION_1" = "複製簡介";
-"COPY_PROFILE_INFO_MENU_OPTION_2" = "複製使用者名稱";
-"COPY_PROFILE_INFO_MENU_OPTION_3" = "複製完整使用者名稱";
-"COPY_PROFILE_INFO_MENU_OPTION_4" = "複製簡介連結";
-"COPY_PROFILE_INFO_MENU_OPTION_5" = "複製地點";
 
 /*Theme*/
 "THEME_SETTINGS_NAVIGATION_TITLE" = "更換主題";
