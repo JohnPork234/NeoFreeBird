@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "صور كبيرة";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "بدون دوّار الوسائط";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "عرض الصور المتعددة كشبكة بدلاً من دوّار قابل للتمرير.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "الطابع الزمني للفيديو";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "عرض الطابع الزمني في مشغل الفيديو الكامل.";
 

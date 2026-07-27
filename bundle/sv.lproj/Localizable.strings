@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Stora bilder";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Ingen mediakarusell";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Visar flera bilder som rutnät i stället för en swipebar karusell.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Video-tidsstämpel";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Visar tidsstämpel på den uppslukande spelaren.";
 

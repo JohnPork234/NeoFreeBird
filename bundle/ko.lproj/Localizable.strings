@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "미디어를 항상 최대 너비로 표시";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "미디어 캐러셀 사용 안 함";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "여러 이미지를 캐러셀 대신 그리드로 표시합니다.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "비디오 타임스탬프 표시";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "전체 화면 플레이어에서 영상의 현재/전체 재생시간을 표시합니다.";
 

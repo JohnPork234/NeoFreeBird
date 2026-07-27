@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Velike slike";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Bez vrtuljka medija";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Prikazuje više slika u mreži umjesto u vrtuljku.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Vremenska oznaka videa";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Prikazuje vremensku oznaku u videu u punom prikazu.";
 

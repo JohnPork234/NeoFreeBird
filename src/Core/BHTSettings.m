@@ -151,6 +151,11 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsPages(void) {
                         @"type": @"toggle"
                     },
                     @{
+                        @"key": @"disable_media_carousel",
+                        @"default": @NO,
+                        @"type": @"toggle"
+                    },
+                    @{
                         @"key": @"restore_video_timestamp",
                         @"default": @NO,
                         @"type": @"toggle"

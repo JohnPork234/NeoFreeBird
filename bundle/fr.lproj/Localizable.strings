@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Images larges";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Pas de carrousel de médias";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Affiche plusieurs images en grille plutôt qu'en carrousel.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Horodatage vidéo";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Affiche l'horodatage dans le lecteur immersif.";
 

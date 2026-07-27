@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Imágenes grandes";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Sin carrusel de medios";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Muestra varias imágenes en cuadrícula en lugar de un carrusel deslizable.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Marca de tiempo del video";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Muestra la marca de tiempo en el reproductor inmersivo.";
 

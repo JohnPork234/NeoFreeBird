@@ -70,6 +70,22 @@ static void ShowConfirmation(void (^confirmed)(void)) {
 
 %end
 
+// The redesigned profile row and the nav bar use their own button, which never
+// routes through TUIFollowControl.
+%hook TUIFollowButtonV2
+
+- (void)buttonTapped {
+    if (![BHTSettings boolForKey:@"follow_confirm"]) {
+        return %orig;
+    }
+
+    ShowConfirmation(^{
+        %orig;
+    });
+}
+
+%end
+
 // MARK: - Like confirm
 
 // didTap on every inline action button routes through this delegate method,

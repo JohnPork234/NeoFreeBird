@@ -43,6 +43,7 @@
                            subtitle:(NSString*)arg2
                           imageName:(NSString*)arg3
                              action:(void (^)(void))arg4;
++ (instancetype)nestedMenuWithTitle:(NSString*)arg1 items:(NSArray*)arg2;
 @end
 
 @interface TFNAttributedTextModel : NSObject

@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Large images";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "No media carousel";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Show multiple images as a grid instead of a swipeable carousel.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Video timestamp";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Shows timestamp on immersive player.";
 

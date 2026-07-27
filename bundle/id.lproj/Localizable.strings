@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Gambar besar";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Tanpa karosel media";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Menampilkan beberapa gambar sebagai kisi, bukan karosel geser.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Penanda Waktu Video";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Menampilkan penanda waktu pada pemutar penuh.";
 

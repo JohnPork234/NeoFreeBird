@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Büyük görseller";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Medya karuseli yok";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Birden fazla görseli karusel yerine ızgara olarak gösterir.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Video zaman etiketi";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Tam ekran oynatıcıda zaman bilgisini gösterir.";
 

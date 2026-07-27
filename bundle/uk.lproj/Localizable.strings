@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Великі зображення";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Без каруселі медіа";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Показувати кілька зображень сіткою, а не каруселлю.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Час у відео";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Показує часову мітку в повноекранному режимі відео.";
 

@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Duże obrazy";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Bez karuzeli multimediów";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Pokazuje wiele obrazów w siatce zamiast w przesuwanej karuzeli.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Znacznik czasu wideo";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Pokazuje znacznik czasu w pełnoekranowym odtwarzaczu.";
 

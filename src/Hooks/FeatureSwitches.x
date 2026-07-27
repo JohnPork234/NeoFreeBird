@@ -212,6 +212,21 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return [BHTSettings boolForKey:@"disable_video_captions"] ? @NO : nil;
     }
 
+    // Swipeable carousel for multi-image tweets. The quoted-tweet variant has a
+    // view path that doesn't consult the main key, so both are forced.
+    if ([key isEqualToString:@"ios_ui_multi_media_carousel_enabled"] ||
+        [key isEqualToString:
+                 @"ios_ui_quote_tweet_multi_media_carousel_enabled"]) {
+        return [BHTSettings boolForKey:@"disable_media_carousel"] ? @NO : nil;
+    }
+
+    if ([key isEqualToString:@"tweet_with_visibility_results_prefer_gql_media_"
+                             @"interstitial_enabled"]) {
+        return [BHTSettings boolForKey:@"disable_sensitive_tweet_warnings"]
+                   ? @NO
+                   : nil;
+    }
+
     // Holds the idle timer open for a few minutes after every touch, refreshed
     // on each one. Never force the companion idle-seconds key: zero there
     // means never sleep at all.
@@ -372,7 +387,9 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
                  @"ios_tweet_promote_button_sent_tweet_toast_enabled"] ||
         [key isEqualToString:
                  @"ios_tweet_promote_button_third_party_boost_enabled"] ||
-        [key isEqualToString:@"thirdparty_boost_author_view_button_enabled"]) {
+        [key isEqualToString:@"thirdparty_boost_author_view_button_enabled"] ||
+        [key isEqualToString:@"boost_tab_enabled"] ||
+        [key isEqualToString:@"boost_tab_verified_enabled"]) {
         return @NO;
     }
 
@@ -403,6 +420,12 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
 static NSString* FeatureSwitchStringOverrideForKey(NSString* key) {
     if ([key isEqualToString:@"c9s_tab_visibility"]) {
         return @"always";
+    }
+
+    if ([key isEqualToString:
+                 @"subscriptions_upsells_ios_premium_right_nav_button_variant"] &&
+        [BHTSettings boolForKey:@"hide_premium_offer"]) {
+        return @"";
     }
 
     return nil;
@@ -896,16 +919,6 @@ static __thread BOOL DashPanelIDQuery = NO;
 - (id)innerImageInterstitial {
     return [BHTSettings boolForKey:@"disable_sensitive_tweet_warnings"]
                ? nil
-               : %orig;
-}
-
-%end
-
-%hook HFHealthSafetyFeature
-
-+ (BOOL)isTweetMedialInterstitialEnabled:(id)featureSwitches {
-    return [BHTSettings boolForKey:@"disable_sensitive_tweet_warnings"]
-               ? NO
                : %orig;
 }
 

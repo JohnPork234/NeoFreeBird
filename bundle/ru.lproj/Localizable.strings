@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "Показывать большие изображения";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "Без карусели медиа";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "Показывать несколько изображений сеткой, а не каруселью.";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "Метка времени видео";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "Показывает метку времени в полноэкранном режиме.";
 

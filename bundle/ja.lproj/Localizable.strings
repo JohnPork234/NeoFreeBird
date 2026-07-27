@@ -155,6 +155,9 @@
 
 "FORCE_TWEET_FULL_FRAME_TITLE" = "大きな画像";
 
+"DISABLE_MEDIA_CAROUSEL_TITLE" = "メディアカルーセルを無効化";
+"DISABLE_MEDIA_CAROUSEL_DETAIL" = "複数の画像をカルーセルではなくグリッドで表示します。";
+
 "RESTORE_VIDEO_TIMESTAMP_TITLE" = "動画のタイムスタンプ";
 "RESTORE_VIDEO_TIMESTAMP_DETAIL" = "没入型プレーヤー内にタイムスタンプを表示します。";
 
