@@ -173,12 +173,6 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @NO;
     }
 
-    // The profile hooks build on the classic header; the header rework
-    // replaces the action-buttons row with a separate catalog system.
-    if ([key isEqualToString:@"ios_profile_redesign_header_rework_enabled"]) {
-        return @NO;
-    }
-
     // Profile tabs
     if ([key isEqualToString:@"articles_timeline_profile_tab_enabled"]) {
         return @(![BHTSettings boolForKey:@"disable_articles"]);
@@ -281,7 +275,10 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         [key isEqualToString:@"ssp_ads_immersive_client_only_integration"] ||
         [key isEqualToString:@"ssp_ads_tweet_details"] ||
         [key isEqualToString:
-                 @"ssp_ads_tweet_details_client_only_integration"]) {
+                 @"ssp_ads_tweet_details_client_only_integration"] ||
+        // Declared to the server in every timeline request's feature-switch
+        // map; the other ssp_ads_preroll_* keys have no reader in the client.
+        [key isEqualToString:@"ssp_ads_preroll_enabled"]) {
         return [BHTSettings boolForKey:@"hide_promoted"] ? @NO : nil;
     }
 
