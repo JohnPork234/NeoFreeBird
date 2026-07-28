@@ -167,6 +167,8 @@ static BOOL updatingTabIconColor = NO;
 
 // MARK: - Tab bar (top swipe segments) underline tinting
 
+// The redesigned segmented controller, used by Home, Jobs, Communities members
+// and activity history.
 %hook _TtC10TFNUISwift25SegmentedHighlightBarView
 
 - (void)setBackgroundColor:(UIColor*)color {
@@ -175,6 +177,20 @@ static BOOL updatingTabIconColor = NO;
     } else {
         %orig(color);
     }
+}
+
+%end
+
+%hook TFNScrollingHorizontalLabelView
+
+- (UIColor*)_tfn_highlightedBarColorForItemAtIndex:(NSUInteger)index {
+    UIColor* color = %orig;
+
+    if (color && [BHTSettings boolForKey:@"tint_tab_bar"]) {
+        return CurrentAccentColor();
+    }
+
+    return color;
 }
 
 %end
