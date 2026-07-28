@@ -14,6 +14,12 @@ $(TWEAK_NAME)_EXTRA_FRAMEWORKS = $(TWEAK_EXTRA_FRAMEWORKS)
 $(TWEAK_NAME)_OBJ_FILES = $(TWEAK_OBJ_FILES)
 $(TWEAK_NAME)_CFLAGS = $(TWEAK_CFLAGS)
 
+# The settings pages subclass a Twitter class, and Twitter's frameworks can't be
+# linked against. Leaving the superclass undefined lets dyld bind it at load,
+# where TwitterSPMMigration is already in the process.
+$(TWEAK_NAME)_LDFLAGS = -Wl,-U,_OBJC_CLASS_\$$_TFNItemsDataViewController \
+                        -Wl,-U,_OBJC_METACLASS_\$$_TFNItemsDataViewController
+
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 SUBPROJECTS += $(TWEAK_SUBPROJECTS)

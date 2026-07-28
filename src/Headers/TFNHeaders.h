@@ -21,13 +21,74 @@
 @property (nonatomic, copy) NSString* text;
 @end
 
+@class TFNDataViewItemArgs;
+@class TFNItemsDataViewController;
+
 @interface TFNDataViewController : UIViewController
 @property (readonly, nonatomic) TFNTableView* tableView;
 @property (readonly, nonatomic) NSString* adDisplayLocation;
+- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout*)layout;
+- (void)update:(BOOL)animated;
+- (void)setNeedsUpdate:(BOOL)animated;
+- (void)reloadCellsForItemsAtIndexPaths:(NSArray<NSIndexPath*>*)indexPaths
+                       withRowAnimation:(UITableViewRowAnimation)animation;
 @end
 
 @interface TFNItemsDataViewController : TFNDataViewController
 @property (copy, nonatomic) NSArray* sections;
+- (NSArray*)updatedSections:(NSArray*)sections forStyle:(NSInteger)style;
+- (void)updateSections:(NSArray*)sections;
+- (void)useDataViewAdapter:(id)adapter forItemsOfClass:(Class)itemClass;
+- (NSIndexPath*)indexPathForItem:(id)item;
+@end
+
+@interface TFNDataViewItemArgs : NSObject
+@property (readonly, nonatomic) id item;
+@property (readonly, nonatomic) id controller;
+@property (readonly, nonatomic) NSIndexPath* indexPath;
+@end
+
+@interface TFNBooleanItem : NSObject
+@property (nonatomic, copy) NSString* text;
+@property (nonatomic) BOOL value;
+- (instancetype)initWithStyle:(NSInteger)style
+                         text:(NSString*)text
+                        value:(BOOL)value
+                 updateAction:(void (^)(TFNDataViewItemArgs* args))updateAction;
+@end
+
+@interface TFNSettingsDescriptionItem : NSObject
+- (instancetype)initForNoActionWithText:(NSString*)text;
+@end
+
+@interface TFNGenericItem : NSObject
+@property (nonatomic, copy) UITableViewCell* (^cellForRowAtIndexPathBlock)
+    (TFNGenericItem* item, TFNItemsDataViewController* controller, UITableView* tableView,
+     NSIndexPath* indexPath);
+@property (nonatomic, copy) CGFloat (^heightForRowAtIndexPathBlock)
+    (TFNGenericItem* item, TFNItemsDataViewController* controller, UITableView* tableView,
+     NSIndexPath* indexPath);
+@property (nonatomic, copy) void (^didSelectRowAtIndexPathBlock)
+    (TFNGenericItem* item, TFNItemsDataViewController* controller, UITableView* tableView,
+     NSIndexPath* indexPath);
+@property (nonatomic, strong) id userInfo;
+@end
+
+@interface TFNTextCell : UITableViewCell
++ (instancetype)iconCellForTableView:(UITableView*)tableView
+                           indexPath:(NSIndexPath*)indexPath
+                            withText:(NSString*)text
+                          detailText:(NSString*)detailText
+                                icon:(UIImage*)icon
+                       accessoryType:(UITableViewCellAccessoryType)accessoryType;
+@end
+
+@interface NSObject (TFNDataViewItem)
+- (id)tfn_withMultipleLines:(BOOL)multipleLines;
+@end
+
+@interface NSString (TFNDataViewItem)
+- (id)tfn_asNextSectionHeader;
 @end
 
 @interface TFNNavigationController : UINavigationController
@@ -94,6 +155,7 @@
 @end
 
 @interface TFNSettingsNavigationItem : NSObject
+@property (readonly, nonatomic) NSString* title;
 - (instancetype)initWithTitle:(NSString*)arg1
                        detail:(NSString*)arg2
                      iconName:(NSString*)arg3
@@ -101,6 +163,8 @@
 - (instancetype)initWithTitle:(NSString*)arg1
                        detail:(NSString*)arg2
             controllerFactory:(UIViewController* (^)(void))arg4;
+- (instancetype)initWithTitle:(NSString*)arg1
+            controllerFactory:(UIViewController* (^)(void))arg2;
 @end
 
 @interface TFNButton : UIButton

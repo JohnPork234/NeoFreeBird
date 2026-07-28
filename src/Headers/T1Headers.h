@@ -181,3 +181,10 @@
                              count:(id)arg3
                        highlighted:(_Bool)arg4;
 @end
+
+#pragma mark - Settings
+
+@interface T1SubtitledSettingsItem : TFNGenericItem
+@property (nonatomic, copy) NSString* title;
+@property (nonatomic, copy) NSString* subtitle;
+@end
