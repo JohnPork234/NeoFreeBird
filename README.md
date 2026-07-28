@@ -148,3 +148,23 @@ A dependency is a name plus where to get it, so sideloaded and TrollStore builds
 ```
 
 Use `path` instead of `url` for a local `.deb` (relative to the repo). Setting both takes the local one, which is how a package you built yourself is tested in place of the published one. A plain string declares a dependency without bundling it.
+
+# Translating
+
+Every language lives in `bundle/strings.json`, one entry per string key with a value per language:
+
+```json
+{
+  "Localizable": {
+    "MODERN_SETTINGS_LAYOUT_TITLE": {
+      "en": "General",
+      "de": "Allgemein",
+      "fr": "Général"
+    }
+  }
+}
+```
+
+`build.py` writes each table into `<name>.bundle/Localizations.bundle/<language>.lproj/<table>.strings` as it stages the bundle, so there are no `.lproj` folders to edit. `Localizable` is Cocoa's default table and holds the interface strings, setting the languages the tweak ships: a key missing one falls back to English, and the build says which. Every other table is optional and strictly per-language, never falling back — `RenameWords` and `RenameOverrides` are two, driving the "Restore Twitter names" feature.
+
+`strings.schema.json` completes language codes and flags typos and empty values as you type. It lists the ISO 639-1 designators plus the script and region variants iOS resolves; iOS takes any BCP 47 designator, so add one there if you need it. Neither file is shipped.

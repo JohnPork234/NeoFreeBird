@@ -6,17 +6,17 @@
 #import "HookHelpers.h"
 
 // MARK: - Restore Twitter terminology
-// Two layers, both driven by locale files in the tweak bundle:
-//   1. RenameOverrides.strings — Twitter localization key -> exact replacement,
-//      a missing key falls through to the generic replacement
-//   2. RenameWords.strings — generic word replacements ("X" -> "Twitter",
-//      "Post" -> "Tweet", etc.) applied to localized and server-side strings
-// Both are strictly per-language: a language without its own copy of a file
-// gets no renaming from that layer, rather than English rules applied to
-// non-English text.
+// Two layers, both optional tables in the bundle's strings file:
+//   1. RenameOverrides — Twitter localization key -> exact replacement, a
+//      missing key falls through to the generic replacement
+//   2. RenameWords — generic word replacements ("X" -> "Twitter", "Post" ->
+//      "Tweet", etc.) applied to localized and server-side strings
+// Both are strictly per-language: a language a table wasn't written for gets no
+// renaming from that layer, rather than English rules applied to non-English
+// text. A table left out entirely just contributes nothing.
 
 static NSDictionary<NSString*, NSString*>* RenameTable(NSString* name) {
-    NSBundle* bundle = [BHTBundle sharedBundle].mainBundle;
+    NSBundle* bundle = [BHTBundle sharedBundle].stringsBundle;
     NSString* appLanguage =
         [[NSBundle mainBundle] preferredLocalizations].firstObject ?: @"en";
     NSString* localization =
@@ -217,7 +217,7 @@ static NSAttributedString* RestoreTwitterAttributed(NSAttributedString* input) {
                              table:(NSString*)tableName {
     NSString* result = %orig;
     if (![BHTSettings boolForKey:@"restore_twitter_names"] ||
-        self == [BHTBundle sharedBundle].mainBundle) {
+        self == [BHTBundle sharedBundle].stringsBundle) {
         return result;
     }
 

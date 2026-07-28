@@ -9,6 +9,7 @@
 
 @interface BHTBundle ()
 @property (nonatomic, strong) NSBundle* mainBundle;
+@property (nonatomic, strong) NSBundle* stringsBundle;
 @end
 
 @implementation BHTBundle
@@ -42,13 +43,19 @@
 - (instancetype)initWithBundlePath:(NSURL*)bundlePath {
     if (self = [super init]) {
         self.mainBundle = [NSBundle bundleWithPath:[bundlePath path]];
+
+        NSURL* strings =
+            [self.mainBundle URLForResource:@TWEAK_STRINGS_BUNDLE_STRING
+                              withExtension:@"bundle"];
+        self.stringsBundle =
+            strings ? [NSBundle bundleWithURL:strings] : self.mainBundle;
     }
 
     return self;
 }
 
 - (NSString*)localizedStringForKey:(NSString*)key {
-    return [self.mainBundle localizedStringForKey:key value:key table:nil];
+    return [self.stringsBundle localizedStringForKey:key value:key table:nil];
 }
 
 // Fetches one of Twitter's own strings, reusing the app's translations for

@@ -30,8 +30,28 @@ THEOS_DIR = ROOT / ".theos"
 TWEAK_JSON = ROOT / "tweak.json"
 BUILD_FIELDS = {"filter", "build"}
 
-# Resources, installed as <name>/<name>.bundle under Application Support.
+# Resources, installed as <name>/<name>.bundle under Application Support. The
+# strings file and its schema are the exception: they are the source the .lproj
+# tables are built from, so they are staged rather than shipped as they stand.
 BUNDLE_DIR = ROOT / "bundle"
+STRINGS = BUNDLE_DIR / "strings.json"
+STRINGS_SCHEMA = BUNDLE_DIR / "strings.schema.json"
+
+# The nested bundle the tables are built into, so the .lproj directories don't
+# crowd the bundle root. A bundle rather than a plain directory because that is
+# what NSBundle's localized lookups reach into; the tweak finds it by the same
+# name, through TWEAK_STRINGS_BUNDLE_STRING.
+STRINGS_BUNDLE = "Localizations"
+
+# Cocoa's default table, and so the tweak's own interface strings: it sets the
+# languages shipped, and a key it hasn't been translated into falls back to
+# SOURCE_LANGUAGE, since English in the UI beats a raw key. Every other table is
+# strictly per-language, having been written for the language it replaces text
+# in, and is only built for the languages it has values for.
+PRIMARY_TABLE = "Localizable"
+SOURCE_LANGUAGE = "en"
+
+STRINGS_ESCAPES = {"\\": "\\\\", '"': '\\"', "\n": "\\n", "\t": "\\t"}
 
 # The branding, as a patina config bundle; a zip of the same layout works too.
 REBRAND_DIR = ROOT / "patina"
@@ -108,6 +128,7 @@ def make_env(scheme, release):
         for flag in build.get("cflags", [])
     ] + [
         f"""-DTWEAK_NAME_STRING='"{info["name"]}"'""",
+        f"""-DTWEAK_STRINGS_BUNDLE_STRING='"{STRINGS_BUNDLE}"'""",
         f"""-DTWEAK_VERSION_STRING='"{info["version"]}"'""",
         f"""-DTWEAK_COMMIT_STRING='"{commit or "unknown"}"'""",
     ]
@@ -354,6 +375,97 @@ def control_value(value):
     return str(value)
 
 
+def read_strings():
+    """{table: {key: {language: value}}} from the strings file, with the
+    languages the tweak ships. Language codes are checked against the schema's
+    own list, so the two can't drift apart."""
+    if not STRINGS_SCHEMA.is_file():
+        raise BuildError(f"{STRINGS.name} has no {STRINGS_SCHEMA.name} beside it.")
+
+    document = json.loads(STRINGS.read_text(encoding="utf-8"))
+    schema = json.loads(STRINGS_SCHEMA.read_text(encoding="utf-8"))
+    known = set(schema["$defs"]["translations"]["properties"])
+
+    tables = {name: table for name, table in document.items() if name != "$schema"}
+    if PRIMARY_TABLE not in tables:
+        raise BuildError(f"No {PRIMARY_TABLE} table to take the languages from.")
+
+    for name, table in tables.items():
+        for key, values in table.items():
+            for language, value in values.items():
+                where = f"{name}.{key}.{language}"
+                if language not in known:
+                    raise BuildError(f"{where}: not a language code the schema allows.")
+                if not isinstance(value, str) or not value.strip():
+                    raise BuildError(f"{where}: not a string.")
+
+    shipped = table_languages(tables[PRIMARY_TABLE])
+    for name, table in tables.items():
+        unknown = table_languages(table) - shipped
+        if unknown:
+            raise BuildError(
+                f"{name}: languages the tweak doesn't ship: {sorted(unknown)}."
+            )
+
+    return tables, shipped
+
+
+def table_languages(table):
+    return {language for values in table.values() for language in values}
+
+
+def strings_escape(text):
+    return "".join(STRINGS_ESCAPES.get(character, character) for character in text)
+
+
+def strings_table(table, language, fallback=None):
+    lines = ["/* Generated from localisation/strings.json — do not edit. */", ""]
+    for key, values in table.items():
+        value = values.get(language, values.get(fallback))
+        if value is not None:
+            lines.append(f'"{strings_escape(key)}" = "{strings_escape(value)}";')
+
+    return "\n".join(lines) + "\n"
+
+
+def stage_strings(bundle):
+    """Write each table into a nested bundle of .lproj directories, and name the
+    keys still waiting on a translation rather than letting them pass quietly. A
+    tweak with no strings file has nothing to build."""
+    if not STRINGS.is_file():
+        return
+
+    tables, shipped = read_strings()
+    localizations = bundle / f"{STRINGS_BUNDLE}.bundle"
+    for name, table in tables.items():
+        primary = name == PRIMARY_TABLE
+        for language in sorted(shipped if primary else table_languages(table)):
+            directory = localizations / f"{language}.lproj"
+            directory.mkdir(parents=True, exist_ok=True)
+            (directory / f"{name}.strings").write_text(
+                strings_table(table, language, SOURCE_LANGUAGE if primary else None),
+                encoding="utf-8",
+            )
+
+    # A resource bundle of its own, so NSBundle treats it as one and resolves
+    # the language against its .lproj directories.
+    (localizations / "Info.plist").write_bytes(
+        plistlib.dumps(
+            {
+                "CFBundleIdentifier": f"{tweak_info('package')}.{STRINGS_BUNDLE.lower()}",
+                "CFBundleDevelopmentRegion": SOURCE_LANGUAGE,
+                "CFBundleInfoDictionaryVersion": "6.0",
+                "CFBundlePackageType": "BNDL",
+            }
+        )
+    )
+
+    for key, values in tables[PRIMARY_TABLE].items():
+        missing = sorted(shipped - set(values))
+        if missing:
+            say(f"{key} is untranslated in {', '.join(missing)}; using English.")
+
+
 def stage_theos(scheme):
     """Write what Theos reads where it looks for it: the tweak's resources and
     the deb control, both in the layout dir Theos is pointed at."""
@@ -362,11 +474,14 @@ def stage_theos(scheme):
 
     layout = layout_dir(scheme)
     shutil.rmtree(layout, ignore_errors=True)
+    bundle = layout / f"Library/Application Support/{name}/{name}.bundle"
     shutil.copytree(
         BUNDLE_DIR,
-        layout / f"Library/Application Support/{name}/{name}.bundle",
+        bundle,
         copy_function=os.link,
+        ignore=shutil.ignore_patterns(STRINGS.name, STRINGS_SCHEMA.name),
     )
+    stage_strings(bundle)
 
     fields = {
         field: value for field, value in info.items() if field not in BUILD_FIELDS
