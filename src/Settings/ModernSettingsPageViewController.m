@@ -10,6 +10,12 @@
 #import "Core/BHTSettings.h"
 #import "Headers/TWHeaders.h"
 
+// Twitter's own accent picker, as used by T1DisplaySettingsViewController: a
+// state-free item that reads and writes the accent itself.
+static const char* const kAccentPickerItemClass = "_TtC14T1TwitterSwift20ColorThemePickerItem";
+static const char* const kAccentPickerAdapterClass =
+    "_TtC14T1TwitterSwift27ColorThemePickerItemAdapter";
+
 @interface ModernSettingsPageViewController ()
 @property (nonatomic, copy) NSString* registryPageKey;
 @end
@@ -28,6 +34,14 @@
         self.registryPageKey = pageKey;
         [self useDataViewAdapter:[[objc_getClass("TFNSettingsDescriptionItemTableRowAdapter") alloc] init]
                  forItemsOfClass:objc_getClass("TFNSettingsDescriptionItem")];
+
+        Class accentPickerClass = objc_getClass(kAccentPickerItemClass);
+        Class accentPickerAdapterClass = objc_getClass(kAccentPickerAdapterClass);
+        if (accentPickerClass && accentPickerAdapterClass) {
+            [self useDataViewAdapter:[[accentPickerAdapterClass alloc] init]
+                     forItemsOfClass:accentPickerClass];
+        }
+
         [self setNeedsUpdate:NO];
     }
     return self;
@@ -123,6 +137,10 @@
         return @[[self buttonItemForEntry:entry]];
     }
 
+    if ([type isEqualToString:@"accentPicker"]) {
+        return [self accentPickerItemsForEntry:entry];
+    }
+
     NSMutableArray* items = [NSMutableArray arrayWithObject:[self toggleItemForEntry:entry]];
     NSString* detail = [self localizedDetailForKey:entry[@"key"]];
     if (detail.length > 0) {
@@ -146,6 +164,20 @@
          }];
 
     return [item tfn_withMultipleLines:YES];
+}
+
+- (NSArray*)accentPickerItemsForEntry:(NSDictionary*)entry {
+    Class accentPickerClass = objc_getClass(kAccentPickerItemClass);
+    if (!accentPickerClass) {
+        return @[];
+    }
+
+    id picker = [[accentPickerClass alloc] init];
+    if (!entry[@"titleKey"]) {
+        return @[picker];
+    }
+
+    return @[[[self localizedTitleForEntry:entry] tfn_asNextSectionHeader], picker];
 }
 
 - (id)buttonItemForEntry:(NSDictionary*)entry {

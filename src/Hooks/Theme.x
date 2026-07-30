@@ -11,6 +11,26 @@ static NSNumber* selectedThemeColor(void) {
     return [NSUserDefaults.standardUserDefaults objectForKey:@"bh_color_theme_selectedColor"];
 }
 
+// The native accent picker records its choice here before reaching
+// TAEColorSettings, so mirroring it keeps the pin below in agreement.
+%hook T1ColorSettings
+
++ (void)setPrimaryColorOption:(NSInteger)colorOption {
+    // The picker only offers options 1-6; 0 is the app clearing the accent for a
+    // non-premium account, which must leave the chosen color alone.
+    if (colorOption >= 1) {
+        [NSUserDefaults.standardUserDefaults setInteger:colorOption
+                                                 forKey:@"bh_color_theme_selectedColor"];
+        %orig(colorOption);
+        return;
+    }
+
+    NSNumber* selectedColor = selectedThemeColor();
+    %orig(selectedColor ? selectedColor.integerValue : colorOption);
+}
+
+%end
+
 // Every apply path (launch re-apply, trait changes, both settings pickers)
 // funnels through this setter, so coercing here keeps the custom color pinned.
 %hook TAEColorSettings

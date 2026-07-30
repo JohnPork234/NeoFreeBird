@@ -9,6 +9,7 @@
 #import "Core/BHTBundle.h"
 #import "Core/BHTSettings.h"
 #import "Headers/TWHeaders.h"
+#import "Settings/Pages/AccentColorSettingsViewController.h"
 
 @interface AppearanceSettingsViewController () <UIFontPickerViewControllerDelegate>
 @end
@@ -21,20 +22,10 @@
 
 #pragma mark - Sub-page Navigation
 
-- (void)showThemeViewController:(NSDictionary*)sender {
-    Class ColorThemeViewControllerClass = objc_getClass("ColorThemeViewController");
-    if (ColorThemeViewControllerClass) {
-        UIViewController* themeVC = [[ColorThemeViewControllerClass alloc] init];
-        if (self.account) {
-            [themeVC.navigationItem
-                setTitleView:
-                    [objc_getClass("TFNTitleView")
-                        titleViewWithTitle:[[BHTBundle sharedBundle]
-                                               localizedStringForKey:@"THEME_SETTINGS_NAVIGATION_TITLE"]
-                                  subtitle:self.account.displayUsername]];
-        }
-        [self.navigationController pushViewController:themeVC animated:YES];
-    }
+- (void)showAccentColorViewController:(NSDictionary*)sender {
+    UIViewController* accentVC =
+        [[AccentColorSettingsViewController alloc] initWithAccount:self.account];
+    [self.navigationController pushViewController:accentVC animated:YES];
 }
 
 - (void)showAppIconViewController:(NSDictionary*)sender {

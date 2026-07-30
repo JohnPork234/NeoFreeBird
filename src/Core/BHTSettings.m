@@ -32,13 +32,25 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsPages(void) {
                       @"default": @NO}
                 ]
             },
+            @"accent": @{
+                @"titleKey": @"ACCENT_COLOR_TITLE",
+                @"settings": @[
+                    @{@"type": @"accentPicker"},
+                    @{@"key": @"color_twitter_icon_in_top_bar",
+                      @"default": @([BHTManager isTwitterBranded])},
+                    @{@"key": @"tint_tab_bar",
+                      @"default": @NO},
+                    @{@"key": @"tab_bar_theming",
+                      @"default": @NO}
+                ]
+            },
             @"appearance": @{
                 @"titleKey": @"MODERN_SETTINGS_APPEARANCE_TITLE",
                 @"subtitleKey": @"MODERN_SETTINGS_APPEARANCE_SUBTITLE",
                 @"settings": @[
                     @{
-                        @"titleKey": @"THEME_OPTION_TITLE",
-                        @"action": @"showThemeViewController:",
+                        @"titleKey": @"ACCENT_COLOR_TITLE",
+                        @"action": @"showAccentColorViewController:",
                         @"type": @"button"
                     },
                     @{
@@ -51,12 +63,6 @@ static NSDictionary<NSString*, NSDictionary*>* BHTSettingsPages(void) {
                         @"action": @"showCustomTabBarVC:",
                         @"type": @"button"
                     },
-                    @{@"key": @"color_twitter_icon_in_top_bar",
-                      @"default": @([BHTManager isTwitterBranded])},
-                    @{@"key": @"tint_tab_bar",
-                      @"default": @NO},
-                    @{@"key": @"tab_bar_theming",
-                      @"default": @NO},
                     @{@"key": @"restore_tab_labels",
                       @"default": @NO},
                     @{@"key": @"custom_fonts",
