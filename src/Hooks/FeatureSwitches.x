@@ -612,28 +612,6 @@ static NSString* FeatureSwitchStringOverrideForKey(NSString* key) {
 
 %end
 
-// MARK: - Override the login screens
-
-%hook T1AccountsViewController
-
-- (void)private_startLoginFlowWithSender:(id)sender {
-    [LegacyLoginViewController presentLoginFrom:(UIViewController*)self];
-}
-
-%end
-
-%hook T1HostViewController
-
-- (void)makeOnboardingViewControllerWithCompletion:(void (^)(id))completion {
-    if (completion == nil) {
-        %orig;
-        return;
-    }
-    completion([LegacyLoginViewController loginRootNavigationController]);
-}
-
-%end
-
 // MARK: - High quality images
 
 %hook T1ImageDisplayView

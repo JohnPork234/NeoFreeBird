@@ -149,8 +149,6 @@ static const CGFloat NFBProfileAvatarSize = 40;
         [self itemForPage:@"branding"
                      icon:@"hash_stroke"],
         presets,
-        [self itemForPage:@"experimental"
-                     icon:@"flask"],
         [self itemForPage:@"debug"
                        icon:@"code"
             controllerClass:[DebugSettingsViewController class]]
