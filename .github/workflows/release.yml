@@ -68,7 +68,21 @@ jobs:
           key: ${{ steps.ffmpeg-key.outputs.key }}
 
       - name: Download Base IPA
-        run: wget "$IPA_URL" --no-verbose -O main/packages/base.ipa
+        run: |
+          DOWNLOAD_URL="$IPA_URL"
+          if [[ "$IPA_URL" =~ drive\.google\.com/file/d/([^/]+) ]]; then
+            FILE_ID="${BASH_REMATCH[1]}"
+            DOWNLOAD_URL="https://drive.usercontent.google.com/download?id=${FILE_ID}&export=download&confirm=t"
+          fi
+
+          wget "$DOWNLOAD_URL" --no-verbose -O main/packages/base.ipa
+
+          if ! unzip -tq main/packages/base.ipa >/dev/null 2>&1; then
+            echo "::error::The Base IPA URL did not download a valid IPA/ZIP. Use a direct-download link."
+            file main/packages/base.ipa || true
+            ls -lh main/packages/base.ipa || true
+            exit 1
+          fi
         env:
           IPA_URL: ${{ inputs.decrypted_ipa_url }}
 
