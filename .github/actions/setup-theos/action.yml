@@ -29,6 +29,14 @@ runs:
       shell: bash
       run: curl -fsSL https://github.com/L1ghtmann/llvm-project/releases/latest/download/iOSToolchain-x86_64.tar.xz | tar -xJf - -C theos/toolchain/
 
+    - name: Fix iOS Toolchain ranlib
+      shell: bash
+      run: |
+        cd "$GITHUB_WORKSPACE/theos/toolchain/linux/iphone/bin"
+        if [[ ! -e aarch64-apple-darwin14-ranlib && -e ranlib ]]; then
+          ln -s ranlib aarch64-apple-darwin14-ranlib
+        fi
+
     - name: iOS SDK Caching
       id: sdk
       uses: actions/cache@v6
